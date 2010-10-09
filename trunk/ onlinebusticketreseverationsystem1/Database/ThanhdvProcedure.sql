@@ -13,7 +13,6 @@ CREATE PROCEDURE InsertBusTpye
 AS
 INSERT INTO BusType VALUES(@Name,@Desciption,1)
 GO
-
 /*2. Update by ID*/
 IF OBJECTPROPERTY(object_id('UpdateBusTypeByID'), N'IsProcedure') = 1
 DROP PROCEDURE [dbo].UpdateBusTypeByID
