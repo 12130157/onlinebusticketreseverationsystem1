@@ -12,3 +12,10 @@ D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\BOL\bin\Debug\DataAcces
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\BOL\obj\Debug\ResolveAssemblyReference.cache
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\BOL\obj\Debug\BOL.dll
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\BOL\obj\Debug\BOL.pdb
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\bin\Debug\BOL.dll
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\bin\Debug\BOL.pdb
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\bin\Debug\DataAccessLayer.dll
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\bin\Debug\DataAccessLayer.pdb
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\obj\Debug\ResolveAssemblyReference.cache
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\obj\Debug\BOL.dll
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\BOL\obj\Debug\BOL.pdb
