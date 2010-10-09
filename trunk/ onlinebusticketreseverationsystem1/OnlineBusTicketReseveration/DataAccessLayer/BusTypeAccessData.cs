@@ -16,6 +16,10 @@ namespace DataAccessLayer
         {
             return ExecuteDataTable("SelectAllBusType",null);
         }
+        public DataTable GetBusTypeByID(int ID)
+        {
+            return ExecuteDataTable("SelectBusTypeByID", createParameter("@BT_ID",ID));
+        }
         public int AddBusType(String Name,String Description)
         {
             IDataParameter[] idp=new IDataParameter[2];
