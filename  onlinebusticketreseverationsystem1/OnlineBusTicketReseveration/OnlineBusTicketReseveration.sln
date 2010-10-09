@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBusTicketReseveration", "OnlineBusTicketReseveration\OnlineBusTicketReseveration.csproj", "{88D0B910-0AF1-4514-B75A-FE5777E96EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{8D07906C-726E-4313-A49B-1D198D2304B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOL", "BOL\BOL.csproj", "{95ACD9B5-4CE8-4AD2-BB55-C69ADD37558C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88D0B910-0AF1-4514-B75A-FE5777E96EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D0B910-0AF1-4514-B75A-FE5777E96EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D0B910-0AF1-4514-B75A-FE5777E96EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D0B910-0AF1-4514-B75A-FE5777E96EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D07906C-726E-4313-A49B-1D198D2304B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D07906C-726E-4313-A49B-1D198D2304B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D07906C-726E-4313-A49B-1D198D2304B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D07906C-726E-4313-A49B-1D198D2304B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95ACD9B5-4CE8-4AD2-BB55-C69ADD37558C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95ACD9B5-4CE8-4AD2-BB55-C69ADD37558C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95ACD9B5-4CE8-4AD2-BB55-C69ADD37558C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95ACD9B5-4CE8-4AD2-BB55-C69ADD37558C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
