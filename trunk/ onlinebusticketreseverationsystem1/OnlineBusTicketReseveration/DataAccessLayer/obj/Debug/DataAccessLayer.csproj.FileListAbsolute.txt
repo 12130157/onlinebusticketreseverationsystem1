@@ -8,3 +8,8 @@ D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\DataAccessLayer\bin\Deb
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\EprojectsemIII\ProjectSvn\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Semester 3\eProject_Sem3\OnlineBusTicketReseveration\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
