@@ -1,0 +1,19 @@
+
+*******************************************Yeu cau ve Document(bao cao)***********************************
+
+-1. Viet UseCase,active,class,sequence diagram >>> voi vai tro la admin quan ly City va newandevent, Admin
+
+
+*******************************************Yeu cau ve database********************************************
+
+-1. Viet 3 chuc nang duoi day cho cac' bang sau: City va newandevent, Admin
+
+-A.Viet cac cau Procedure (INSERT,UPDATE,DELETE) vao file  procedure.sql trong thu muc database
+
+-B.Viet cac cau insert(SU DUNG PROCEDURE MOI TAO O TREN DE INSERT) du lieu vao file  Insert.sql t trong thu muc database
+
+-C.Viet cac cau Trigger(nghi dc ra j thi viet cai day! ko dc cung deo lam sao ^_^) vao file  Trigger.sql  trong thu muc database
+ 
+
+***********Important****************************************************************
+DOc xong co van de j phai pmm khan truong han cuoi nop la 12 h dem thu 3 ngay` 12/10/2010 
