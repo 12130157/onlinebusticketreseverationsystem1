@@ -28,6 +28,11 @@ create procedure SelectBusTypeByName
 	AS
 	select * from BusType where [Name]=@Name
 
+--Procedure Select all
+create procedure SelectAllBusType
+	AS
+	select * from BusType
+
 --############################Bang City############################
 --Procedure Insert bang City
 create procedure InsertCity
@@ -52,6 +57,11 @@ create procedure SelectCitybyName
 	@Name varchar(50)
 	AS
 	select * from City where [Name] = @Name
+
+--Procedure Select all
+create procedure SelectAllCity
+	AS
+	select * from City
 
 --#############################Bang Route#########################
 --Procedure Insert bang Route
@@ -85,6 +95,11 @@ create procedure SelectRoutebyName
 	AS
 	select * from [Route] where [Name] = @Name
 
+--Procedure Select all
+create procedure SelectAllRoute
+	AS
+	select * from [Route]
+
 --###########################Bang Packing_Place####################
 --Procedure Insert bang Packing_Place
 create procedure InsertPacking_Place
@@ -112,6 +127,11 @@ create procedure SelectPacking_PlacebyName
 	AS
 	select * from Packing_Place where [Name] = @Name
 
+--Procedure Select all
+create procedure SelectAllPacking_Place
+	AS
+	select * from Packing_Place
+
 --##############################Bang Bus##########################
 --Procedure Insert bang Bus
 create procedure InsertBus
@@ -138,6 +158,11 @@ create procedure SelectBus
 	@Bus_number CHAR(5)
 	AS
 	select * from Bus where Bus_number = @Bus_number
+
+--Procedure select all
+create procedure SelectAllBus
+	AS
+	select * from Bus
 
 --###########################Bang Sales#########################
 --Procedure Insert bang Sales
@@ -167,6 +192,11 @@ create procedure SelectSalesbyName
 	@Name VARCHAR(50)
 	AS
 	select * from Sales where [Name] = @Name
+
+--Procedure select all
+create procedure SelectAllSales
+	AS
+	select * from Sales
 
 --############################Bang Customer#######################
 --Procedure Insert bang Customer
@@ -207,6 +237,11 @@ create procedure SelectCustomersbyLastName
 	AS
 	select * from Customers where LastName = @LastName
 
+--Procedure select all
+create procedure SelectAllCustomers
+	AS
+	select * from Customers
+
 --##############################Bang Branch############################
 --Procedure Insert bang Branch
 create procedure InsertBranch
@@ -235,6 +270,11 @@ create procedure SelectBranchbyName
 	AS
 	select * from Branch where [Name] = @Name
 
+--Procedure select all
+create procedure SelectAllBranch
+	AS
+	select * from Branch
+
 --################################Bang Level_Authority#########################
 --Procedure Insert bang Level_Authority
 create procedure InsertLevel_Authority
@@ -260,6 +300,11 @@ create procedure SelectLevel_AuthoritybyName
 	@Name VARCHAR(50)
 	AS
 	select * from Level_Authority where [Name] = @Name
+
+--Procedure select all
+create procedure SelectAllLevel_Authority
+	AS
+	select * from Level_Authority
 
 --#############################Bang Employee############################
 --Procedure Insert bang Employee
@@ -299,6 +344,12 @@ create procedure SelectEmployeebyLastName
 	AS
 	select * from Employee where LastName = @LastName
 
+--Procedure select all
+create procedure SelectAllEmployee
+	AS
+	select * from Employee
+
+
 --################################Bang Ticket############################
 --Procedure Insert bang Ticket
 create procedure InsertTicket
@@ -331,6 +382,11 @@ create procedure SelectTicketbyPrice
 	AS
 	select * from Ticket where Price = @Price
 
+--Procedure select all
+create procedure SelectAllTicket
+	AS
+	select * from Ticket
+
 --############################Bang TicketReturn###########################
 --Procedure Insert bang TicketReturn
 create procedure InsertTicketReturn
@@ -352,6 +408,11 @@ create procedure SelectTicketReturn
 	@TR_Id INT
 	AS
 	select * from TicketReturn where TR_Id = @TR_Id
+
+--Procedure select all
+create procedure SelectAllTicketReturn
+	AS
+	select * from TicketReturn
 
 --#############################Bang NewAndEvent############################
 --Procedure Insert bang NewAndEvent
@@ -382,6 +443,11 @@ create procedure SelectNewAndEventbyTitle
 	AS
 	select * from NewAndEvent where Title = @Title
 
+--Procedure select all
+create procedure SelectAllNewAndEvent
+	AS
+	select * from NewAndEvent
+
 --#############################Bang Admin##########################
 --Procedure Insert bang Admin
 create procedure InsertAdmin
@@ -410,3 +476,8 @@ create procedure SelectAdminbyUserName
 	@UserName INT
 	AS
 	select * from Admin where UserName = @UserName
+
+--Procedure select all
+create procedure SelectAllAdmin
+	AS
+	select * from Admin
