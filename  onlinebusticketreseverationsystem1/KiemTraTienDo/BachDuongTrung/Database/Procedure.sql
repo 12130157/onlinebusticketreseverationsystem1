@@ -1,6 +1,6 @@
 use OnlineBusTicket
 
---Bang Bustype
+--############################Bang Bustype#############################
 --Procedure Insert bang Bustype
 create procedure InsertBusType
 	@Name VARCHAR(30),
@@ -16,7 +16,19 @@ create procedure DeleteBusType
 	AS
 	delete Bustype where BT_Id = @BT_Id
 
---Bang City
+--Procedure Select BusType by ID
+create procedure SelectBusTypeByID
+	@BT_Id INT
+	AS
+	select * from BusType where BT_Id=@BT_Id
+
+--Procedure Select BusType by Name
+create procedure SelectBusTypeByName
+	@Name VARCHAR(30)
+	AS
+	select * from BusType where [Name]=@Name
+
+--############################Bang City############################
 --Procedure Insert bang City
 create procedure InsertCity
 	@Name varchar(50)
@@ -29,7 +41,19 @@ create procedure DeleteCity
 	AS
 	delete City where Ci_Id = @Ci_Id
 
---Bang Route
+--Procedure Select City by ID
+create procedure SelectCity
+	@Ci_Id int 
+	AS
+	select * from City where Ci_Id = @Ci_Id
+
+--Procedure Select City by Name
+create procedure SelectCitybyName
+	@Name varchar(50)
+	AS
+	select * from City where [Name] = @Name
+
+--#############################Bang Route#########################
 --Procedure Insert bang Route
 create procedure InsertRoute
 	@Name varchar(100),
@@ -49,7 +73,19 @@ create procedure DeleteRoute
 	AS
 	delete [Route] where Rou_Id = @Rou_Id
 
---Bang Packing_Place
+--Procedure Select Route by ID
+create procedure SelectRoute
+	@Rou_Id INT
+	AS
+	select * from [Route] where Rou_Id = @Rou_Id
+
+--Procedure Select Route by Name
+create procedure SelectRoutebyName
+	@Name varchar(100)
+	AS
+	select * from [Route] where [Name] = @Name
+
+--###########################Bang Packing_Place####################
 --Procedure Insert bang Packing_Place
 create procedure InsertPacking_Place
 	@Name VARCHAR(50),
@@ -64,7 +100,19 @@ create procedure DeletePacking_Place
 	AS
 	delete Packing_Place where PP_Id = @PP_Id
 
---Bang Bus
+--Procedure Select Packing_Place by ID
+create procedure SelectPacking_Place
+	@PP_Id INT
+	AS
+	select * from Packing_Place where PP_Id = @PP_Id
+
+--Procedure Select Packing_Place by Name
+create procedure SelectPacking_PlacebyName
+	@Name VARCHAR(50)
+	AS
+	select * from Packing_Place where [Name] = @Name
+
+--##############################Bang Bus##########################
 --Procedure Insert bang Bus
 create procedure InsertBus
 	@Bus_number CHAR(5),
@@ -85,7 +133,13 @@ create procedure DeleteBus
 	AS
 	delete Bus where Bus_number = @Bus_number
 
---Bang Sales
+--Procedure Select Bus by ID
+create procedure SelectBus
+	@Bus_number CHAR(5)
+	AS
+	select * from Bus where Bus_number = @Bus_number
+
+--###########################Bang Sales#########################
 --Procedure Insert bang Sales
 create procedure InsertSales
 	@Name VARCHAR(50),
@@ -102,7 +156,19 @@ create procedure DeleteSales
 	AS
 	delete Sales where Sa_Id = @Sa_Id
 
---Bang Customer
+--Procedure Select Sales by ID
+create procedure SelectSales
+	@Sa_Id INT
+	AS
+	select * from Sales where Sa_Id = @Sa_Id
+
+--Procedure Select Sales by Name
+create procedure SelectSalesbyName
+	@Name VARCHAR(50)
+	AS
+	select * from Sales where [Name] = @Name
+
+--############################Bang Customer#######################
 --Procedure Insert bang Customer
 create procedure InsertCustomers
 	@FirstName VARCHAR(50),
@@ -123,7 +189,25 @@ create procedure DeleteCustomers
 	AS
 	delete Customers where Cus_Id = @Cus_Id
 
---Bang Branch
+--Procedure Select Customer by ID
+create procedure SelectCustomers
+	@Cus_Id INT
+	AS
+	select * from Customers where Cus_Id = @Cus_Id
+
+--Procedure Select Customer by FirstName
+create procedure SelectCustomersbyFirstName
+	@FirstName VARCHAR(50)
+	AS
+	select * from Customers where FirstName = @FirstName
+
+--Procedure Select Customer by LastName
+create procedure SelectCustomersbyLastName
+	@LastName VARCHAR(50)
+	AS
+	select * from Customers where LastName = @LastName
+
+--##############################Bang Branch############################
 --Procedure Insert bang Branch
 create procedure InsertBranch
 	@Name VARCHAR(100),
@@ -139,7 +223,19 @@ create procedure DeleteBranch
 	AS
 	delete Branch where B_id = @B_id
 
---Bang Level_Authority
+--Procedure select Branch by ID
+create procedure SelectBranch
+	@B_id INT
+	AS
+	select * from Branch where B_id = @B_id
+
+--Procedure select Branch by Name
+create procedure SelectBranchbyName
+	@Name VARCHAR(100)
+	AS
+	select * from Branch where [Name] = @Name
+
+--################################Bang Level_Authority#########################
 --Procedure Insert bang Level_Authority
 create procedure InsertLevel_Authority
 	@Name VARCHAR(50),
@@ -153,7 +249,19 @@ create procedure DeleteLevel_Authority
 	AS
 	delete Level_Authority where LV_Id = @LV_Id
 
---Bang Employee
+--Procedure Select Level_Authority by ID
+create procedure SelectLevel_Authority
+	@LV_Id INT
+	AS
+	select * from Level_Authority where LV_Id = @LV_Id
+
+--Procedure Select Level_Authority by Name
+create procedure SelectLevel_AuthoritybyName
+	@Name VARCHAR(50)
+	AS
+	select * from Level_Authority where [Name] = @Name
+
+--#############################Bang Employee############################
 --Procedure Insert bang Employee
 create procedure InsertEmployee
 	@E_Id CHAR(6),
@@ -173,7 +281,25 @@ create procedure DeleteEmployee
 	AS
 	delete Employee where E_Id = @E_Id
 
---Bang Ticket
+--Procedure Select Employee by ID
+create procedure SelectEmployee
+	@E_Id CHAR(6)
+	AS
+	select * from Employee where E_Id = @E_Id
+
+--Procedure Select Employee by FirstName
+create procedure SelectEmployeebyFirstName
+	@Firstname VARCHAR(20)
+	AS
+	select * from Employee where Firstname = @Firstname
+
+--Procedure Select Employee by LastName
+create procedure SelectEmployeebyLastName
+	@LastName VARCHAR(20)
+	AS
+	select * from Employee where LastName = @LastName
+
+--################################Bang Ticket############################
 --Procedure Insert bang Ticket
 create procedure InsertTicket
 	@Price MONEY,
@@ -193,7 +319,19 @@ create procedure DeleteTicket
 	AS
 	delete Ticket where T_Id = @T_Id
 
---Bang TicketReturn
+--Procedure Select Ticket by ID
+create procedure SelectTicket
+	@T_Id INT
+	AS
+	select * from Ticket where T_Id = @T_Id
+
+--Procedure Select Ticket by Price
+create procedure SelectTicketbyPrice
+	@Price MONEY
+	AS
+	select * from Ticket where Price = @Price
+
+--############################Bang TicketReturn###########################
 --Procedure Insert bang TicketReturn
 create procedure InsertTicketReturn
 	@TR_Id INT,
@@ -209,7 +347,13 @@ create procedure DeleteTicketReturn
 	AS
 	delete TicketReturn where TR_Id = @TR_Id
 
---Bang NewAndEvent
+--Procedure Select TicketReturn by ID
+create procedure SelectTicketReturn
+	@TR_Id INT
+	AS
+	select * from TicketReturn where TR_Id = @TR_Id
+
+--#############################Bang NewAndEvent############################
 --Procedure Insert bang NewAndEvent
 create procedure InsertNewAndEvent
 	@Title VARCHAR(100),
@@ -226,7 +370,19 @@ create procedure DeleteNewAndEvent
 	AS
 	delete NewAndEvent where NE_Id = @NE_Id
 
---Bang Admin
+--Procedure Select NewAndEvent by ID
+create procedure SelectNewAndEvent
+	@NE_Id INT
+	AS
+	select * from NewAndEvent where NE_Id = @NE_Id
+
+--Procedure Select NewAndEvent by Title
+create procedure SelectNewAndEventbyTitle
+	@Title VARCHAR(100)
+	AS
+	select * from NewAndEvent where Title = @Title
+
+--#############################Bang Admin##########################
 --Procedure Insert bang Admin
 create procedure InsertAdmin
 	@UserName VARCHAR(30),
@@ -242,3 +398,15 @@ create procedure DeleteAdmin
 	@A_Id INT
 	AS
 	delete Admin where A_Id = @A_Id
+
+--Procedure Select Admin by ID
+create procedure SelectAdmin
+	@A_Id INT
+	AS
+	select * from Admin where A_Id = @A_Id
+
+--Procedure Select Admin by UserName
+create procedure SelectAdminbyUserName
+	@UserName INT
+	AS
+	select * from Admin where UserName = @UserName
