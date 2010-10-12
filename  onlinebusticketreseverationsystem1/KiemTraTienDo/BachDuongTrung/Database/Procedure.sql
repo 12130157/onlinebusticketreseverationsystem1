@@ -1,71 +1,71 @@
-use OnlineBusTicket
-
+USE OnlineBusTicket
+GO
 --############################Bang Bustype#############################
---Procedure Insert bang Bustype
-create procedure InsertBusType
+--PROCEDURE INSERT bang Bustype
+CREATE PROCEDURE InsertBusType
 	@Name VARCHAR(30),
 	@Description varchar(1000),
 	@Price money,
 	@Status BIT
 	AS
-	insert into BusType values (@Name,@Description,@Price,@Status)
-
---Procedure Delete bang BusType
-create procedure DeleteBusType
+	INSERT INTO BusType VALUES (@Name,@Description,@Price,@Status)
+GO
+--PROCEDURE DELETE bang BusType
+CREATE PROCEDURE DeleteBusTypeByID
 	@BT_Id INT
 	AS
-	delete Bustype where BT_Id = @BT_Id
-
---Procedure Select BusType by ID
-create procedure SelectBusTypeByID
+	DELETE Bustype WHERE BT_Id = @BT_Id
+GO
+--PROCEDURE SELECT BusType by ID
+CREATE PROCEDURE SelectBusTypeByID
 	@BT_Id INT
 	AS
-	select * from BusType where BT_Id=@BT_Id
-
---Procedure Select BusType by Name
-create procedure SelectBusTypeByName
+	SELECT * FROM BusType WHERE BT_Id=@BT_Id
+GO
+--PROCEDURE SELECT BusType by Name
+CREATE PROCEDURE SelectBusTypeByName
 	@Name VARCHAR(30)
 	AS
-	select * from BusType where [Name]=@Name
-
---Procedure Select all
-create procedure SelectAllBusType
+	SELECT * FROM BusType WHERE [Name]=@Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllBusType
 	AS
-	select * from BusType
-
+	SELECT * FROM BusType
+GO
 --############################Bang City############################
---Procedure Insert bang City
-create procedure InsertCity
+--PROCEDURE INSERT bang City
+CREATE PROCEDURE InsertCity
 	@Name varchar(50)
 	AS
-	insert into City values (@Name)
-
---Procedure Delete bang City
-create procedure DeleteCity
+	INSERT INTO City VALUES (@Name)
+GO
+--PROCEDURE DELETE bang City
+CREATE PROCEDURE DeleteCity
 	@Ci_Id int 
 	AS
-	delete City where Ci_Id = @Ci_Id
-
---Procedure Select City by ID
-create procedure SelectCity
+	DELETE City WHERE Ci_Id = @Ci_Id
+GO
+--PROCEDURE SELECT City by ID
+CREATE PROCEDURE SelectCity
 	@Ci_Id int 
 	AS
-	select * from City where Ci_Id = @Ci_Id
-
---Procedure Select City by Name
-create procedure SelectCitybyName
+	SELECT * FROM City WHERE Ci_Id = @Ci_Id
+GO
+--PROCEDURE SELECT City by Name
+CREATE PROCEDURE SelectCitybyName
 	@Name varchar(50)
 	AS
-	select * from City where [Name] = @Name
-
---Procedure Select all
-create procedure SelectAllCity
+	SELECT * FROM City WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllCity
 	AS
-	select * from City
-
+	SELECT * FROM City
+GO
 --#############################Bang Route#########################
---Procedure Insert bang Route
-create procedure InsertRoute
+--PROCEDURE INSERT bang Route
+CREATE PROCEDURE InsertRoute
 	@Name varchar(100),
 	@StartPlace varchar(50),
 	@EndPlace varchar(50),
@@ -75,66 +75,66 @@ create procedure InsertRoute
 	@Description varchar(200),
 	@Status BIT
 	AS
-	insert into [Route] values (@Name,@StartPlace,@EndPlace,@Distance,@StartDate,@Price,@Description,@Status)
-
---Procedure Delete bang Route
-create procedure DeleteRoute
+	INSERT INTO [Route] VALUES (@Name,@StartPlace,@EndPlace,@Distance,@StartDate,@Price,@Description,@Status)
+GO
+--PROCEDURE DELETE bang Route
+CREATE PROCEDURE DeleteRoute
 	@Rou_Id INT
 	AS
-	delete [Route] where Rou_Id = @Rou_Id
-
---Procedure Select Route by ID
-create procedure SelectRoute
+	DELETE [Route] WHERE Rou_Id = @Rou_Id
+GO
+--PROCEDURE SELECT Route by ID
+CREATE PROCEDURE SelectRoute
 	@Rou_Id INT
 	AS
-	select * from [Route] where Rou_Id = @Rou_Id
-
---Procedure Select Route by Name
-create procedure SelectRoutebyName
+	SELECT * FROM [Route] WHERE Rou_Id = @Rou_Id
+GO
+--PROCEDURE SELECT Route by Name
+CREATE PROCEDURE SelectRoutebyName
 	@Name varchar(100)
 	AS
-	select * from [Route] where [Name] = @Name
-
---Procedure Select all
-create procedure SelectAllRoute
+	SELECT * FROM [Route] WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllRoute
 	AS
-	select * from [Route]
-
+	SELECT * FROM [Route]
+GO
 --###########################Bang Packing_Place####################
---Procedure Insert bang Packing_Place
-create procedure InsertPacking_Place
+--PROCEDURE INSERT bang Packing_Place
+CREATE PROCEDURE InsertPacking_Place
 	@Name VARCHAR(50),
 	@Ci_Id int,
 	@Status BIT
 	AS
-	insert into Packing_Place values (@Name,@Ci_Id,@Status)
-
---Procedure Delete bang Packing_Place
-create procedure DeletePacking_Place
+	INSERT INTO Packing_Place VALUES (@Name,@Ci_Id,@Status)
+GO
+--PROCEDURE DELETE bang Packing_Place
+CREATE PROCEDURE DeletePacking_Place
 	@PP_Id INT
 	AS
-	delete Packing_Place where PP_Id = @PP_Id
-
---Procedure Select Packing_Place by ID
-create procedure SelectPacking_Place
+	DELETE Packing_Place WHERE PP_Id = @PP_Id
+GO
+--PROCEDURE SELECT Packing_Place by ID
+CREATE PROCEDURE SelectPacking_Place
 	@PP_Id INT
 	AS
-	select * from Packing_Place where PP_Id = @PP_Id
-
---Procedure Select Packing_Place by Name
-create procedure SelectPacking_PlacebyName
+	SELECT * FROM Packing_Place WHERE PP_Id = @PP_Id
+GO
+--PROCEDURE SELECT Packing_Place by Name
+CREATE PROCEDURE SelectPacking_PlacebyName
 	@Name VARCHAR(50)
 	AS
-	select * from Packing_Place where [Name] = @Name
-
---Procedure Select all
-create procedure SelectAllPacking_Place
+	SELECT * FROM Packing_Place WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllPacking_Place
 	AS
-	select * from Packing_Place
-
+	SELECT * FROM Packing_Place
+GO
 --##############################Bang Bus##########################
---Procedure Insert bang Bus
-create procedure InsertBus
+--PROCEDURE INSERT bang Bus
+CREATE PROCEDURE InsertBus
 	@Bus_number CHAR(5),
 	@StartTime DATETIME,
 	@EndTime DATETIME,
@@ -145,62 +145,65 @@ create procedure InsertBus
 	@PP_Id INT,
 	@Status BIT
 	AS
-	insert into Bus values (@Bus_number,@StartTime,@EndTime,@EspectedTime,@Seat,@BT_Id,@Rou_Id,@PP_Id,@Status)
-
---Procedure Delete bang Bus
-create procedure DeleteBus
+	INSERT INTO Bus VALUES (@Bus_number,@StartTime,@EndTime,@EspectedTime,@Seat,@BT_Id,@Rou_Id,@PP_Id,@Status)
+GO
+--PROCEDURE DELETE bang Bus
+CREATE PROCEDURE DeleteBus
 	@Bus_number CHAR(5)
 	AS
-	delete Bus where Bus_number = @Bus_number
-
---Procedure Select Bus by ID
-create procedure SelectBus
+	DELETE Bus WHERE Bus_number = @Bus_number
+GO
+--PROCEDURE SELECT Bus by ID
+CREATE PROCEDURE SelectBus
 	@Bus_number CHAR(5)
 	AS
-	select * from Bus where Bus_number = @Bus_number
-
---Procedure select all
-create procedure SelectAllBus
+	SELECT * FROM Bus WHERE Bus_number = @Bus_number
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllBus
 	AS
-	select * from Bus
-
+	SELECT * FROM Bus
+GO
 --###########################Bang Sales#########################
---Procedure Insert bang Sales
-create procedure InsertSales
+--PROCEDURE INSERT bang Sales
+IF OBJECTPROPERTY(object_id('InsertSales'), N'IsProcedure') = 1
+DROP PROCEDURE [dbo].InsertSales
+GO
+CREATE PROCEDURE InsertSales
 	@Name VARCHAR(50),
 	@MinAge INT,  
 	@MaxAge INT,
 	@Rate INT ,
 	@Status BIT
 	AS
-	insert into Sales values(@Name,@MinAge,@MaxAge,@Rate,@Status)
-
---Procedure Delete bang Sales
-create procedure DeleteSales
+	INSERT INTO Sales VALUES(@Name,@MinAge,@MaxAge,@Rate,@Status)
+GO
+--PROCEDURE DELETE bang Sales
+CREATE PROCEDURE DeleteSales
 	@Sa_Id INT
 	AS
-	delete Sales where Sa_Id = @Sa_Id
-
---Procedure Select Sales by ID
-create procedure SelectSales
+	DELETE Sales WHERE Sa_Id = @Sa_Id
+GO
+--PROCEDURE SELECT Sales by ID
+CREATE PROCEDURE SelectSales
 	@Sa_Id INT
 	AS
-	select * from Sales where Sa_Id = @Sa_Id
-
---Procedure Select Sales by Name
-create procedure SelectSalesbyName
+	SELECT * FROM Sales WHERE Sa_Id = @Sa_Id
+GO
+--PROCEDURE SELECT Sales by Name
+CREATE PROCEDURE SelectSalesbyName
 	@Name VARCHAR(50)
 	AS
-	select * from Sales where [Name] = @Name
-
---Procedure select all
-create procedure SelectAllSales
+	SELECT * FROM Sales WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllSales
 	AS
-	select * from Sales
-
+	SELECT * FROM Sales
+GO
 --############################Bang Customer#######################
---Procedure Insert bang Customer
-create procedure InsertCustomers
+--PROCEDURE INSERT bang Customer
+CREATE PROCEDURE InsertCustomers
 	@FirstName VARCHAR(50),
 	@LastName VARCHAR(50),
 	@Birthday DATETIME,
@@ -211,148 +214,150 @@ create procedure InsertCustomers
 	@Sa_Id INT,
 	@Status BIT
 	AS
-	insert into Customers values (@FirstName,@LastName,@Birthday,@Address,@Email,@RegisterDate,@PhoneNumber,@Sa_Id,@Status)
-
---Procedure Delete bang Customer
-create procedure DeleteCustomers
+	INSERT INTO Customers VALUES (@FirstName,@LastName,@Birthday,@Address,@Email,@RegisterDate,@PhoneNumber,@Sa_Id,@Status)
+GO
+--PROCEDURE DELETE bang Customer
+CREATE PROCEDURE DeleteCustomers
 	@Cus_Id INT
 	AS
-	delete Customers where Cus_Id = @Cus_Id
-
---Procedure Select Customer by ID
-create procedure SelectCustomers
+	DELETE Customers WHERE Cus_Id = @Cus_Id
+GO
+--PROCEDURE SELECT Customer by ID
+CREATE PROCEDURE SelectCustomers
 	@Cus_Id INT
 	AS
-	select * from Customers where Cus_Id = @Cus_Id
-
---Procedure Select Customer by FirstName
-create procedure SelectCustomersbyFirstName
+	SELECT * FROM Customers WHERE Cus_Id = @Cus_Id
+GO
+--PROCEDURE SELECT Customer by FirstName
+CREATE PROCEDURE SelectCustomersbyFirstName
 	@FirstName VARCHAR(50)
 	AS
-	select * from Customers where FirstName = @FirstName
-
---Procedure Select Customer by LastName
-create procedure SelectCustomersbyLastName
+	SELECT * FROM Customers WHERE FirstName = @FirstName
+GO
+--PROCEDURE SELECT Customer by LastName
+CREATE PROCEDURE SelectCustomersbyLastName
 	@LastName VARCHAR(50)
 	AS
-	select * from Customers where LastName = @LastName
-
---Procedure select all
-create procedure SelectAllCustomers
+	SELECT * FROM Customers WHERE LastName = @LastName
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllCustomers
 	AS
-	select * from Customers
-
+	SELECT * FROM Customers
+GO
 --##############################Bang Branch############################
---Procedure Insert bang Branch
-create procedure InsertBranch
+--PROCEDURE INSERT bang Branch
+CREATE PROCEDURE InsertBranch
 	@Name VARCHAR(100),
 	@PhoneNumber VARCHAR(10),
 	@Address VARCHAR(100),
 	@Status BIT 
 	AS
-	insert into Branch values(@Name,@PhoneNumber,@Address,@Status)
-
---Procedure Delete bang Branch
-create procedure DeleteBranch
+	INSERT INTO Branch VALUES(@Name,@PhoneNumber,@Address,@Status)
+GO
+--PROCEDURE DELETE bang Branch
+CREATE PROCEDURE DeleteBranch
 	@B_id INT
 	AS
-	delete Branch where B_id = @B_id
-
---Procedure select Branch by ID
-create procedure SelectBranch
+	DELETE Branch WHERE B_id = @B_id
+GO
+--PROCEDURE SELECT Branch by ID
+CREATE PROCEDURE SelectBranch
 	@B_id INT
 	AS
-	select * from Branch where B_id = @B_id
-
---Procedure select Branch by Name
-create procedure SelectBranchbyName
+	SELECT * FROM Branch WHERE B_id = @B_id
+GO
+--PROCEDURE SELECT Branch by Name
+CREATE PROCEDURE SelectBranchbyName
 	@Name VARCHAR(100)
 	AS
-	select * from Branch where [Name] = @Name
-
---Procedure select all
-create procedure SelectAllBranch
+	SELECT * FROM Branch WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllBranch
 	AS
-	select * from Branch
-
+	SELECT * FROM Branch
+GO
 --################################Bang Level_Authority#########################
---Procedure Insert bang Level_Authority
-create procedure InsertLevel_Authority
+--PROCEDURE INSERT bang Level_Authority
+CREATE PROCEDURE InsertLevel_Authority
 	@Name VARCHAR(50),
 	@Status BIT
 	AS
-	insert into Level_Authority values(@Name,@Status)
-
---Procedure Delete bang Level_Authority
-create procedure DeleteLevel_Authority
+	INSERT INTO Level_Authority VALUES(@Name,@Status)
+GO
+--PROCEDURE DELETE bang Level_Authority
+CREATE PROCEDURE DeleteLevel_Authority
 	@LV_Id INT
 	AS
-	delete Level_Authority where LV_Id = @LV_Id
-
---Procedure Select Level_Authority by ID
-create procedure SelectLevel_Authority
+	DELETE Level_Authority WHERE LV_Id = @LV_Id
+GO
+--PROCEDURE SELECT Level_Authority by ID
+CREATE PROCEDURE SelectLevel_Authority
 	@LV_Id INT
 	AS
-	select * from Level_Authority where LV_Id = @LV_Id
-
---Procedure Select Level_Authority by Name
-create procedure SelectLevel_AuthoritybyName
+	SELECT * FROM Level_Authority WHERE LV_Id = @LV_Id
+GO
+--PROCEDURE SELECT Level_Authority by Name
+CREATE PROCEDURE SelectLevel_AuthoritybyName
 	@Name VARCHAR(50)
 	AS
-	select * from Level_Authority where [Name] = @Name
-
---Procedure select all
-create procedure SelectAllLevel_Authority
+	SELECT * FROM Level_Authority WHERE [Name] = @Name
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllLevel_Authority
 	AS
-	select * from Level_Authority
-
+	SELECT * FROM Level_Authority
+GO
 --#############################Bang Employee############################
---Procedure Insert bang Employee
-create procedure InsertEmployee
+--PROCEDURE INSERT bang Employee
+CREATE PROCEDURE InsertEmployee
 	@E_Id CHAR(6),
 	@Firstname VARCHAR(20),
 	@Lastname VARCHAR(20),
+	@UserName VARCHAR(30), 
+	@Pass VARCHAR(30),
 	@Qualification VARCHAR(30),
 	@Birthday DATETIME,
 	@Location INT,
 	@LV_Id INT,
 	@Status BIT     
 	AS
-	insert into Employee values(@E_Id,@Firstname,@Lastname,@Qualification,@Birthday,@Location,@LV_Id,@Status)
-
---Procedure Delete bang Employee
-create procedure DeleteEmployee
+	INSERT INTO Employee VALUES(@E_Id,@Firstname,@Lastname,@UserName,@Pass,@Qualification,@Birthday,@Location,@LV_Id,@Status)
+GO
+--PROCEDURE DELETE bang Employee
+CREATE PROCEDURE DeleteEmployee
 	@E_Id CHAR(6)
 	AS
-	delete Employee where E_Id = @E_Id
-
---Procedure Select Employee by ID
-create procedure SelectEmployee
+	DELETE Employee WHERE E_Id = @E_Id
+GO
+--PROCEDURE SELECT Employee by ID
+CREATE PROCEDURE SelectEmployee
 	@E_Id CHAR(6)
 	AS
-	select * from Employee where E_Id = @E_Id
-
---Procedure Select Employee by FirstName
-create procedure SelectEmployeebyFirstName
+	SELECT * FROM Employee WHERE E_Id = @E_Id
+GO
+--PROCEDURE SELECT Employee by FirstName
+CREATE PROCEDURE SelectEmployeebyFirstName
 	@Firstname VARCHAR(20)
 	AS
-	select * from Employee where Firstname = @Firstname
-
---Procedure Select Employee by LastName
-create procedure SelectEmployeebyLastName
+	SELECT * FROM Employee WHERE Firstname = @Firstname
+GO
+--PROCEDURE SELECT Employee by LastName
+CREATE PROCEDURE SelectEmployeebyLastName
 	@LastName VARCHAR(20)
 	AS
-	select * from Employee where LastName = @LastName
-
---Procedure select all
-create procedure SelectAllEmployee
+	SELECT * FROM Employee WHERE LastName = @LastName
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllEmployee
 	AS
-	select * from Employee
+	SELECT * FROM Employee
 
-
+GO
 --################################Bang Ticket############################
---Procedure Insert bang Ticket
-create procedure InsertTicket
+--PROCEDURE INSERT bang Ticket
+CREATE PROCEDURE InsertTicket
 	@Price MONEY,
 	@Cus_Id INT,
 	@StartDate DATETIME,
@@ -362,122 +367,122 @@ create procedure InsertTicket
 	@Returnted BIT,
 	@Status BIT
 	AS
-	insert into Ticket values(@Price,@Cus_Id,@StartDate,@Bus_number,@Rou_Id,@SeatNumber,@Returnted,@Status)
-
---Procedure Delete bang Ticket
-create procedure DeleteTicket
+	INSERT INTO Ticket VALUES(@Price,@Cus_Id,@StartDate,@Bus_number,@Rou_Id,@SeatNumber,@Returnted,@Status)
+GO
+--PROCEDURE DELETE bang Ticket
+CREATE PROCEDURE DeleteTicket
 	@T_Id INT
 	AS
-	delete Ticket where T_Id = @T_Id
-
---Procedure Select Ticket by ID
-create procedure SelectTicket
+	DELETE Ticket WHERE T_Id = @T_Id
+GO
+--PROCEDURE SELECT Ticket by ID
+CREATE PROCEDURE SelectTicket
 	@T_Id INT
 	AS
-	select * from Ticket where T_Id = @T_Id
-
---Procedure Select Ticket by Price
-create procedure SelectTicketbyPrice
+	SELECT * FROM Ticket WHERE T_Id = @T_Id
+GO
+--PROCEDURE SELECT Ticket by Price
+CREATE PROCEDURE SelectTicketbyPrice
 	@Price MONEY
 	AS
-	select * from Ticket where Price = @Price
-
---Procedure select all
-create procedure SelectAllTicket
+	SELECT * FROM Ticket WHERE Price = @Price
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllTicket
 	AS
-	select * from Ticket
-
+	SELECT * FROM Ticket
+GO
 --############################Bang TicketReturn###########################
---Procedure Insert bang TicketReturn
-create procedure InsertTicketReturn
+--PROCEDURE INSERT bang TicketReturn
+CREATE PROCEDURE InsertTicketReturn
 	@TR_Id INT,
 	@RetuneDate DATETIME,
 	@Diminish INT,
 	@ReturnPrice MONEY
 	AS
-	insert into TicketReturn values(@TR_Id,@RetuneDate,@Diminish,@ReturnPrice)
-
---Procedure Delete bang TicketReturn
-create procedure DeleteTicketReturn
+	INSERT INTO TicketReturn VALUES(@TR_Id,@RetuneDate,@Diminish,@ReturnPrice)
+GO
+--PROCEDURE DELETE bang TicketReturn
+CREATE PROCEDURE DeleteTicketReturn
 	@TR_Id INT
 	AS
-	delete TicketReturn where TR_Id = @TR_Id
-
---Procedure Select TicketReturn by ID
-create procedure SelectTicketReturn
+	DELETE TicketReturn WHERE TR_Id = @TR_Id
+GO
+--PROCEDURE SELECT TicketReturn by ID
+CREATE PROCEDURE SelectTicketReturn
 	@TR_Id INT
 	AS
-	select * from TicketReturn where TR_Id = @TR_Id
-
---Procedure select all
-create procedure SelectAllTicketReturn
+	SELECT * FROM TicketReturn WHERE TR_Id = @TR_Id
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllTicketReturn
 	AS
-	select * from TicketReturn
-
+	SELECT * FROM TicketReturn
+GO
 --#############################Bang NewAndEvent############################
---Procedure Insert bang NewAndEvent
-create procedure InsertNewAndEvent
+--PROCEDURE INSERT bang NewAndEvent
+CREATE PROCEDURE InsertNewAndEvent
 	@Title VARCHAR(100),
 	@Content VARCHAR(100),
 	@Author VARCHAR(100),
 	@Date DATETIME,
 	@Status bit 
 	AS
-	insert into NewAndEvent values(@Title,@Content,@Author,@Date,@Status)
-
---Procedure Delete bang NewAndEvent
-create procedure DeleteNewAndEvent
+	INSERT INTO NewAndEvent VALUES(@Title,@Content,@Author,@Date,@Status)
+GO
+--PROCEDURE DELETE bang NewAndEvent
+CREATE PROCEDURE DeleteNewAndEvent
 	@NE_Id INT
 	AS
-	delete NewAndEvent where NE_Id = @NE_Id
-
---Procedure Select NewAndEvent by ID
-create procedure SelectNewAndEvent
+	DELETE NewAndEvent WHERE NE_Id = @NE_Id
+GO
+--PROCEDURE SELECT NewAndEvent by ID
+CREATE PROCEDURE SelectNewAndEvent
 	@NE_Id INT
 	AS
-	select * from NewAndEvent where NE_Id = @NE_Id
-
---Procedure Select NewAndEvent by Title
-create procedure SelectNewAndEventbyTitle
+	SELECT * FROM NewAndEvent WHERE NE_Id = @NE_Id
+GO
+--PROCEDURE SELECT NewAndEvent by Title
+CREATE PROCEDURE SelectNewAndEventbyTitle
 	@Title VARCHAR(100)
 	AS
-	select * from NewAndEvent where Title = @Title
-
---Procedure select all
-create procedure SelectAllNewAndEvent
+	SELECT * FROM NewAndEvent WHERE Title = @Title
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllNewAndEvent
 	AS
-	select * from NewAndEvent
-
+	SELECT * FROM NewAndEvent
+GO
 --#############################Bang Admin##########################
---Procedure Insert bang Admin
-create procedure InsertAdmin
+--PROCEDURE INSERT bang Admin
+CREATE PROCEDURE InsertAdmin
 	@UserName VARCHAR(30),
 	@Pass VARCHAR(30),
 	@FullName VARCHAR(100),
 	@Address VARCHAR(100),
 	@PhoneNumber VARCHAR(10)
 	AS
-	insert into Admin values(@UserName,@Pass,@FullName,@Address,@PhoneNumber)
-
---Procedure Delete bang Admin
-create procedure DeleteAdmin
+	INSERT INTO [Admin] VALUES(@UserName,@Pass,@FullName,@Address,@PhoneNumber)
+GO
+--PROCEDURE DELETE bang Admin
+CREATE PROCEDURE DeleteAdmin
 	@A_Id INT
 	AS
-	delete Admin where A_Id = @A_Id
-
---Procedure Select Admin by ID
-create procedure SelectAdmin
+	DELETE Admin WHERE A_Id = @A_Id
+GO
+--PROCEDURE SELECT Admin by ID
+CREATE PROCEDURE SelectAdmin
 	@A_Id INT
 	AS
-	select * from Admin where A_Id = @A_Id
-
---Procedure Select Admin by UserName
-create procedure SelectAdminbyUserName
+	SELECT * FROM Admin WHERE A_Id = @A_Id
+GO
+--PROCEDURE SELECT Admin by UserName
+CREATE PROCEDURE SelectAdminbyUserName
 	@UserName INT
 	AS
-	select * from Admin where UserName = @UserName
-
---Procedure select all
-create procedure SelectAllAdmin
+	SELECT * FROM ADMIN WHERE UserName = @UserName
+GO
+--PROCEDURE SELECT all
+CREATE PROCEDURE SelectAllAdmin
 	AS
-	select * from Admin
+	SELECT * FROM ADMIN
