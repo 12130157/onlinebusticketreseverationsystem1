@@ -40,7 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\BusType.cs" />
+    <Compile Include="Entity\City.cs" />
+    <Compile Include="Entity\Packing_place.cs" />
+    <Compile Include="Entity\Sales.cs" />
     <Compile Include="Process\Bol_BusType.cs" />
+    <Compile Include="Process\Bol_City.cs" />
+    <Compile Include="Process\Bol_Packing_Place.cs" />
+    <Compile Include="Process\Bol_Sales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
