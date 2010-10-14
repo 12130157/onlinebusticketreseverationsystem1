@@ -1,0 +1,7 @@
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\bin\Debug\BOL.dll
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\bin\Debug\BOL.pdb
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\bin\Debug\DAL.dll
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\bin\Debug\DAL.pdb
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\obj\Debug\BOL.dll
+C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\obj\Debug\BOL.pdb
