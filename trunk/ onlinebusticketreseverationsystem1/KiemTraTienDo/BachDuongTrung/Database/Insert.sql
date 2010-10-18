@@ -9,7 +9,7 @@ exec InsertSales 'Tre em',0,5,2,1
 exec InsertCustomers 'Bach','Trung','8/8/1990','39 Nguyen Cao','trungti_tp@yahoo.com','1/1/2010','0902080890',1,1
 exec InsertBranch 'Sinh Cafe','043999999','6 Luong Ngoc Quyen',1
 exec InsertLevel_Authority 'Admin',1
-exec InsertEmployee 'C00097','Bach','Trung','University','8/8/1990',1,1,1
+exec InsertEmployee 'c00097','Bach','Trung','trungbd','123456','University','8/8/1990',1,1,1
 exec InsertTicket 30000,1,'1/1/2010',20192,1,1,1,1
 exec InsertTicketReturn 1,'1/1/2010',1,25000
 exec InsertNewAndEvent 'Giam gia nhan dip dai le','Giam 10%','TrungBD','1/10/2010',1
