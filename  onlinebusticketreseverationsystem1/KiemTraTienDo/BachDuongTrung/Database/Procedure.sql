@@ -278,6 +278,15 @@ CREATE PROCEDURE SelectAllBranch
 	AS
 	SELECT * FROM Branch
 GO
+Create procedure UpdateBranch
+	@B_id INT,
+	@Name VARCHAR(100),
+	@PhoneNumber VARCHAR(10),
+	@Address VARCHAR(100),
+	@Status BIT 
+	AS
+	update Branch set [Name]=@Name,PhoneNumber=@PhoneNumber,Address=@Address,[Status]=@Status where B_id =@B_id
+GO
 --################################Bang Level_Authority#########################
 --PROCEDURE INSERT bang Level_Authority
 CREATE PROCEDURE InsertLevel_Authority
@@ -308,6 +317,14 @@ GO
 CREATE PROCEDURE SelectAllLevel_Authority
 	AS
 	SELECT * FROM Level_Authority
+GO
+--PROCEDURE INSERT bang Level_Authority
+CREATE PROCEDURE UpdateLevel_Authority
+	@LV_Id INT,
+	@Name VARCHAR(50),
+	@Status BIT
+	AS
+	update Level_Authority set [Name]=@Name,Status=@Status where LV_Id =@LV_Id
 GO
 --#############################Bang Employee############################
 --PROCEDURE INSERT bang Employee
@@ -353,6 +370,21 @@ GO
 CREATE PROCEDURE SelectAllEmployee
 	AS
 	SELECT * FROM Employee
+
+GO
+Create procedure UpdateEmployee
+	@E_Id CHAR(6),
+	@Firstname VARCHAR(20),
+	@Lastname VARCHAR(20),
+	@UserName VARCHAR(30),
+	@Pass VARCHAR(30),
+	@Qualification VARCHAR(30),
+	@Birthday DATETIME,
+	@Location INT,
+	@LV_Id INT,
+	@Status BIT   
+	AS
+	update Employee set Firstname=@Firstname,Lastname=@Lastname,UserName=@UserName,Pass=@Pass,Qualification=@Qualification,Birthday=@Birthday,Location=@Location,LV_Id=@LV_Id,Status=@Status where E_Id =@E_Id
 
 GO
 --################################Bang Ticket############################
