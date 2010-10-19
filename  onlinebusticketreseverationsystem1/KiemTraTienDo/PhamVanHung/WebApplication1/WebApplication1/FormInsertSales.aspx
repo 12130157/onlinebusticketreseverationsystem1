@@ -47,7 +47,56 @@
         <br />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
-    
+        <br />
+    ------------------UPDATE------------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        ---------DELETE-----------<br />
+        <asp:Label ID="Label6" runat="server" Text="Name"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnDelete_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtDelete" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList3" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Label ID="Label7" runat="server" Text="MinAge"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox2" runat="server" ></asp:TextBox>
+        <br />
+        <asp:Label ID="Label8" runat="server" Text="MaxAge"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label9" runat="server" Text="Rate"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label10" runat="server" Text="Status"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="aaa" 
+            Text="Avaible" />
+        <asp:RadioButton ID="RadioButton4" runat="server" GroupName="aaa" 
+            Text="Unavaible" />
+        <br />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update" 
+            onclick="btnUpdate_Click" />
+        &nbsp;
+        <asp:DropDownList ID="DropDownList4" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
     </form>
 </body>

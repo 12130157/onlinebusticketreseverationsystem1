@@ -58,5 +58,43 @@ namespace WebApplication1
                 GridView1.DataBind();
             }
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            bc = new Bol_City();
+            ct = new City();
+            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            {
+                ct.Ci_ID = Convert.ToInt32(TextBox1.Text);
+                GridView1.DataSource = bc.UpdateCityByID(ct);
+                GridView1.DataBind();
+            }
+            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            {
+                ct.Name = TextBox1.Text;
+                GridView1.DataSource = bc.UpdateCityByName(ct);
+                GridView1.DataBind();
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            bc = new Bol_City();
+            ct = new City();
+            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            {
+                ct.Ci_ID = Convert.ToInt32(TextBox1.Text);
+                GridView1.DataSource = bc.DeleteCityByID(ct);
+                GridView1.DataBind();
+            }
+            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            {
+                ct.Name = TextBox1.Text;
+                GridView1.DataSource = bc.DeleteCityByName(ct);
+                GridView1.DataBind();
+            }
+
+        }
+
     }
 }

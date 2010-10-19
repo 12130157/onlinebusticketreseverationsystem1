@@ -28,12 +28,7 @@ namespace WebApplication1
                 bt = new BusType();
                 GridView1.DataSource = bolbt.SelectAllBusType();
                 GridView1.DataBind();
-            }
-                DropDownList1.DataTextField = "ByID";
-                DropDownList1.DataValueField = "Sa_Id";
-                DropDownList1.DataTextField = "ByName";
-                DropDownList1.DataValueField = "Name";
-                DropDownList1.DataBind();          
+            }                    
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -123,6 +118,27 @@ namespace WebApplication1
                 }
             }
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            bolbt = new Bol_BusType();
+            bt = new BusType();
+            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            {
+                bt.BT_ID = Convert.ToInt32(txtDelete.Text);
+                GridView1.DataSource = bolbt.DeleteBusTypeByID(bt);
+                GridView1.DataBind();
+            }
+            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            {
+                bt.Name = txtDelete.Text;
+                GridView1.DataSource = bolbt.DeleteBusTypeByName(bt);
+                GridView1.DataBind();
+            }
+
+        }
+
+
 
     }
 }

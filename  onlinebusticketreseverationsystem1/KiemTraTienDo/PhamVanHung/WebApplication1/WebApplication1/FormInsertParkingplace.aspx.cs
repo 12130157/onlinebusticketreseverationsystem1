@@ -29,7 +29,12 @@ namespace WebApplication1
 
             bpp = new Bol_Packing_Place();
             GridView1.DataSource = bpp.SelectAllPacking_Place();
-            GridView1.DataBind();         
+            GridView1.DataBind();
+
+            DropDownList4.DataSource = ci.SelectAllCity();
+            DropDownList4.DataTextField = "Name";
+            DropDownList4.DataValueField = "Ci_id";
+            DropDownList4.DataBind();
 
          }
         private void loadlist()
@@ -37,14 +42,24 @@ namespace WebApplication1
         
         }     
         protected void Button1_Click(object sender, EventArgs e)
-        {
-            Label1.Text = Convert.ToString(DropDownList1.Text);
+        {            
+            bpp= new Bol_Packing_Place();
             Packing_Place pp = new Packing_Place();
             pp.Name = TextBox1.Text;
             pp.Ci_ID = Convert.ToInt32(DropDownList1.SelectedValue);//cai nay la value ne`
             Label1.Text = Convert.ToString(pp.Ci_ID);
-            pp.Status = true;
-            bpp.InsertPacking_Place(pp).ToString();
+            if (RadioButton3.Checked)
+            {
+                pp.Status = true;
+                GridView1.DataSource = bpp.InsertPacking_Place(pp);
+                GridView1.DataBind();
+            }
+            else
+            {
+                pp.Status = false;
+                GridView1.DataSource = bpp.InsertPacking_Place(pp);
+                GridView1.DataBind();                
+            }
             ////day la form insert paking place ah de xem luon
 
         }
@@ -73,5 +88,68 @@ namespace WebApplication1
                 GridView1.DataBind();
             }
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            bpp = new Bol_Packing_Place();
+            pl = new Packing_Place();
+            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            {
+                pl.Ci_ID = Convert.ToInt32(txtID.Text);
+                pl.Name = txtName.Text;
+                if (RadioButton1.Checked)
+                {
+                    pl.Status = true;                    
+                }
+                else
+                {
+                    pl.Status = false;                    
+                }
+                try
+                {
+                    GridView1.DataSource = bpp.UpdatePacking_PlaceByID(pl);
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                }
+            }
+            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            {
+                pl.Name = txtName.Text;   
+               
+                try
+                {
+                    GridView1.DataSource = bpp.UpdatePacking_PlaceByName(pl);
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                }
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            bpp = new Bol_Packing_Place();
+            pl = new Packing_Place();
+            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            {
+                pl.Ci_ID = Convert.ToInt32(txtDelete.Text);
+                GridView1.DataSource = bpp.DeletePacking_PlaceByID(pl);
+                GridView1.DataBind();
+            }
+            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            {
+                pl.Name = txtDelete.Text;
+                GridView1.DataSource = bpp.DeletePacking_PlaceByName(pl);
+                GridView1.DataBind();
+            }
+
+        }
+
+
     }
 }

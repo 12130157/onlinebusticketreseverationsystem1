@@ -69,7 +69,7 @@ namespace DAL
         #region DeleteSales
         public int DeleteSalesByID(int id)
         {
-            return ExecuteNonQuery("DeleteSalesByID", createParameter("@Sa_Id", id));
+            return ExecuteNonQuery("DeleteSalesByID", createParameter("@Sa_Id",id));
         }
 
         public int DeleteSalesByName(String name)
