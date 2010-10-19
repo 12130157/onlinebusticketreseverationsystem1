@@ -28,14 +28,14 @@ namespace DAL
         #endregion
 
         #region InsertBusType
-        public int InsertBusType(String Name, String Description, Double Price, Boolean Status)
+        public int InsertBusType(int id,String Name, String Description, Double Price, Boolean Status)
         {
             IDataParameter[] idp = new IDataParameter[4];
             idp[0] = createParameter("@Name", Name);
             idp[1] = createParameter("@Description", Description);
             idp[2] = createParameter("@Price", Price);
             idp[3] = createParameter("@Status", Status);
-            return ExecuteNonQuery("InsertBusTpye");
+            return ExecuteNonQuery("InsertBusType",idp);
         }
         #endregion
 
@@ -48,7 +48,7 @@ namespace DAL
             idp[2] = createParameter("@Description", Description);
             idp[3] = createParameter("@Price", Price);
             idp[4] = createParameter("@Status",Status);
-            return ExecuteNonQuery("UpdateBusTypeByID");
+            return ExecuteNonQuery("UpdateBusTypeByID",idp);
         }
 
         public int UpdateBusTypeByName(String Name, String Description, Double Price, Boolean Status)
@@ -58,7 +58,7 @@ namespace DAL
             idp[1] = createParameter("@Description", Description);
             idp[2] = createParameter("@Price", Price);
             idp[3] = createParameter("@Status", Status);
-            return ExecuteNonQuery("UpdateBusTypeByName");
+            return ExecuteNonQuery("UpdateBusTypeByName",idp);
         }
         #endregion
 

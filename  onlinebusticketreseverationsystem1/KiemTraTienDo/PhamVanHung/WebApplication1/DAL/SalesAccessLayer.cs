@@ -29,7 +29,7 @@ namespace DAL
         }
         #endregion
         #region InsertSales
-        public int InsertSales(String name,int minage,int maxage,int rate,Boolean status)
+        public int InsertSales(int id, String name, int minage, int maxage, int rate, Boolean status)
         {
             IDataParameter[] idp = new IDataParameter[5];
             idp[0] = createParameter("@Name", name);
@@ -37,7 +37,7 @@ namespace DAL
             idp[2] = createParameter("@MaxAge", maxage);
             idp[3] = createParameter("@Rate", rate);
             idp[4] = createParameter("@Status", status);
-            return ExecuteNonQuery("InsertSales");
+            return ExecuteNonQuery("InsertSales",idp);
         }
         #endregion
 
@@ -51,7 +51,7 @@ namespace DAL
             idp[3] = createParameter("@MaxAge", maxage);
             idp[4] = createParameter("@Rate", rate);
             idp[5] = createParameter("@Status", status);
-            return ExecuteNonQuery("UpdateSalesByID");
+            return ExecuteNonQuery("UpdateSalesByID",idp);
         }
 
         public int UpdateSalesByName(String name, int minage, int maxage, int rate, Boolean status)
@@ -62,7 +62,7 @@ namespace DAL
             idp[2] = createParameter("@MaxAge", maxage);
             idp[3] = createParameter("@Rate", rate);
             idp[4] = createParameter("@Status", status);
-            return ExecuteNonQuery("UpdateSalesByName");
+            return ExecuteNonQuery("UpdateSalesByName",idp);
         }
         #endregion
 

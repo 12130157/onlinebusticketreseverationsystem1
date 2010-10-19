@@ -35,7 +35,7 @@ namespace BOL.Process
         #region Insert
         public int InsertBusType(BusType bt)
         {
-            return btac.InsertBusType(bt.Name, bt.Description, bt.Price, bt.Status);
+            return btac.InsertBusType(bt.BT_ID,bt.Name, bt.Description, bt.Price, bt.Status);
         }
         #endregion
 

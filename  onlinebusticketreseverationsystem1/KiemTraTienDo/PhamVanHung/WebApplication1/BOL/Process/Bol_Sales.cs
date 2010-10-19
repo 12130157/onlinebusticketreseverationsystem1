@@ -34,7 +34,7 @@ namespace BOL.Process
         #region Insert
         public int InsertSales(Sales sl)
         {
-            return btac.InsertSales(sl.Name, sl.Minage, sl.Maxage, sl.Rate, sl.Status);
+            return btac.InsertSales(sl.Sa_ID,sl.Name, sl.Minage, sl.Maxage, sl.Rate, sl.Status);
         }
         #endregion
         #region UpdateSales

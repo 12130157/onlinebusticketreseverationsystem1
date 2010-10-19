@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="FormInsertBusType.aspx" />
+    <Content Include="FormInsertParkingplace.aspx" />
+    <Content Include="FormInsertSales.aspx" />
+    <Content Include="FromInsertCity.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +67,34 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertBusType.aspx.cs">
+      <DependentUpon>FormInsertBusType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormInsertBusType.aspx.designer.cs">
+      <DependentUpon>FormInsertBusType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertParkingplace.aspx.cs">
+      <DependentUpon>FormInsertParkingplace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormInsertParkingplace.aspx.designer.cs">
+      <DependentUpon>FormInsertParkingplace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertSales.aspx.cs">
+      <DependentUpon>FormInsertSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormInsertSales.aspx.designer.cs">
+      <DependentUpon>FormInsertSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FromInsertCity.aspx.cs">
+      <DependentUpon>FromInsertCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FromInsertCity.aspx.designer.cs">
+      <DependentUpon>FromInsertCity.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
