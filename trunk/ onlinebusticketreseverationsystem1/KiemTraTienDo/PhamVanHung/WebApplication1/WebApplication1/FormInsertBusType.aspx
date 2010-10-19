@@ -58,6 +58,15 @@
         <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnDelete_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtDelete" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList3" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
         <br />
         <asp:Label ID="Label6" runat="server" Text="Description"></asp:Label>
 &nbsp;&nbsp;&nbsp;

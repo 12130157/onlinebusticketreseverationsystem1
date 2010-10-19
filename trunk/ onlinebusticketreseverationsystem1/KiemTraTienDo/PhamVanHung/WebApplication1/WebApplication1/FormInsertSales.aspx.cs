@@ -86,5 +86,69 @@ namespace WebApplication1
             }
         }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            bs = new Bol_Sales();
+            sa = new Sales();
+            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            {
+               sa.Sa_ID = Convert.ToInt32(txtID.Text);
+               sa.Name = txtName.Text;
+               sa.Maxage = Convert.ToInt32(txtMaxage.Text);
+               sa.Minage = Convert.ToInt32(txtMinage.Text);
+               sa.Rate = Convert.ToInt32(txtrate.Text);
+                if (RadioButton3.Checked)
+                {
+                    sa.Status = true;
+                   
+                }
+                else
+                {
+                    sa.Status = false;                   
+                }
+                try
+                {
+                    GridView1.DataSource = bs.UpdateSalesByID(sa);
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                }
+            }
+            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            {
+                sa.Name = txtName.Text;
+
+                try
+                {
+                    GridView1.DataSource = bs.UpdateSalesByName(sa);
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                }
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            bs = new Bol_Sales();
+            sa = new Sales();
+            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            {
+                sa.Sa_ID = Convert.ToInt32(txtDelete.Text);
+                GridView1.DataSource = bs.DeleteSalesByID(sa);
+                GridView1.DataBind();
+            }
+            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            {
+                sa.Name = txtDelete.Text;
+                GridView1.DataSource = bs.DeleteSalesByName(sa);
+                GridView1.DataBind();
+            }
+        }
+
     }
 }

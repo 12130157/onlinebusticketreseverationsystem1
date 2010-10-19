@@ -32,12 +32,55 @@
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
             Text="save" />
         <br />
+        Status
+        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="bca" 
+            Text="Avaible" />
+        <asp:RadioButton ID="RadioButton4" runat="server" GroupName="bca" 
+            Text="Unavaible" />
         <br />
         <asp:GridView ID="GridView1" runat="server" >
         </asp:GridView>       
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <br />
-
+        <br />
+        <br />
+ ------------------UPDATE------------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        ---------DELETE-----------<br />
+        <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnDelete_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtDelete" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList3" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        City
+        <br />
+        Status         <asp:RadioButton ID="RadioButton1" runat="server" GroupName="abc" 
+            Text="Avaible" />
+&nbsp;<asp:RadioButton ID="RadioButton2" runat="server" GroupName="abc" 
+            Text="Unavaible" />
+        <br />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update" 
+            onclick="btnUpdate_Click" />
+        &nbsp;
+        <asp:DropDownList ID="DropDownList4" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
     </form>
 </body>

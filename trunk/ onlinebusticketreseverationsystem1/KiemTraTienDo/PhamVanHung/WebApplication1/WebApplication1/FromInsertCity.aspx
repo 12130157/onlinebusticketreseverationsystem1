@@ -14,7 +14,8 @@
 &nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
         <asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" 
             Text="Search" />
 &nbsp;&nbsp;&nbsp;
@@ -31,6 +32,36 @@
     <br />
     <asp:GridView ID="GridView1" runat="server">
     </asp:GridView>
+     ------------------UPDATE------------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        ---------DELETE-----------<br />
+        <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnDelete_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtDelete" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList3" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update" 
+            onclick="btnUpdate_Click" />
+        &nbsp;
+        <asp:DropDownList ID="DropDownList4" runat="server">
+            <asp:ListItem>ByID</asp:ListItem>
+            <asp:ListItem>ByName</asp:ListItem>
+        </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>

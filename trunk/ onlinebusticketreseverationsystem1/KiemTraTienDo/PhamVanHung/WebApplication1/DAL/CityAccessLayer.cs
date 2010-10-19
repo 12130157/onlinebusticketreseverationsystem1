@@ -42,7 +42,7 @@ namespace DAL
             IDbDataParameter[] idb = new IDbDataParameter[2];
             idb[0] = createParameter("@Ci_Id", id);
             idb[1] = createParameter("@Name", name);
-            return ExecuteNonQuery("UpdateCityByID");
+            return ExecuteNonQuery("UpdateCityByID",idb);
         }
         public int UpdateCityByName(string name)
         {
