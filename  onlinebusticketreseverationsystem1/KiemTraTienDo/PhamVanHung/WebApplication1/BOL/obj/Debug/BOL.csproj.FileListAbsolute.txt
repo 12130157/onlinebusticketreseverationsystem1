@@ -5,3 +5,10 @@ C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebAppli
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\bin\Debug\DAL.pdb
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\obj\Debug\BOL.dll
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\BOL\obj\Debug\BOL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\bin\Debug\BOL.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\bin\Debug\BOL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\bin\Debug\DAL.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\bin\Debug\DAL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\obj\Debug\BOL.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\BOL\obj\Debug\BOL.pdb

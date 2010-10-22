@@ -15,18 +15,20 @@ namespace BOL.Process
         public Bol_BusType()
         {
             btac = new BusTypeAccessData();
+           
         }
         #region Select
         
         public DataTable SelectAllBusType()
         {
+            
             return btac.SelectAllBusType();
         }
         public DataTable SelectBusTypeByID(BusType bt)
-        {
+        {           
             return btac.SelectBusTypeByID(bt.BT_ID);
         }
-        public DataTable SelectBusTypeByName(BusType bt)//-dc roi day=]] anh build di. Dung co chay. voi vi em chua lam cai present layer
+        public DataTable SelectBusTypeByName(BusType bt)
         {
             return btac.SelectBusTypeByName(bt.Name);
         }
@@ -58,6 +60,22 @@ namespace BOL.Process
         public int DeleteBusTypeByName(BusType bt)
         {
             return btac.DeleteBusTypeByName(bt.Name);
+        }
+        #endregion
+
+        #region Check
+        public string CheckExistSearchBusTypeName(string name)
+        {
+            return btac.CheckExistSearchBusTypeName(name);
+        }
+        public string CheckExistSearchBusTypeID(int id)
+        {
+            return btac.CheckExistSearchBusTypeID(id);
+        }
+        
+        public string CheckExistInsertBusTypeName(string name)
+        {
+            return btac.CheckExistInsertBusTypeName(name);
         }
         #endregion
 

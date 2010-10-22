@@ -21,48 +21,81 @@ namespace WebApplication1
         BusType bt;
         
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack)
-            {
+        {           
                 bolbt = new Bol_BusType();
                 bt = new BusType();
                 GridView1.DataSource = bolbt.SelectAllBusType();
                 GridView1.DataBind();
-            }                    
+                             
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            bt.Name = TextBox1.Text;
-            bt.Price = Convert.ToDouble(TextBox2.Text);
-            bt.Description = TextBox3.Text;
-            if (RadioButton1.Checked)
+            if (TextBox1.Text == "")
             {
-                bt.Status = true;
+                Response.Write("Khong duoc de trong ten !!!");
+                TextBox1.Focus();
+            }
+            else if (TextBox1.Text != "")
+            {
+                Response.Write(bolbt.CheckExistInsertBusTypeName(TextBox1.Text));
+            }
+            else if (TextBox3.Text == "")
+            {
+                Response.Write("Khong duoc de trong Description !!!");
+                TextBox3.Focus();
+            }
+            else if (TextBox3.Text != "")
+            {
+                if (TextBox2.Text == "")
+                {
+                    Response.Write("Khong duoc de trong gia !!!");
+                    TextBox2.Focus();
+                }
+
             }
             else
             {
-                bt.Status = false;
+                bt.Name = TextBox1.Text;
+                bt.Price = Convert.ToDouble(TextBox2.Text);
+                bt.Description = TextBox3.Text;
+                if (RadioButton1.Checked)
+                {
+                    bt.Status = true;
+                }
+                else
+                {
+                    bt.Status = false;
+                }
+                bolbt.InsertBusType(bt);
             }
-            bolbt.InsertBusType(bt);
-            
         }
-
+       
+        
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             bt = new BusType();
             bolbt = new Bol_BusType();
+            if (txtSearch.Text == "")
+            {
+                Response.Write("Khong duoc de trong !!! ");
+            }  
+            else if(txtSearch.Text != "")
+            {                    
             if (DropDownList1.SelectedValue.ToString() == "ByID")
             {
-                bt.BT_ID = Convert.ToInt32(txtSearch.Text);
+                Response.Write(bolbt.CheckExistSearchBusTypeID(Convert.ToInt32(txtSearch.Text)));
+                bt.BT_ID = Convert.ToInt32(txtSearch.Text);                
                 GridView1.DataSource = bolbt.SelectBusTypeByID(bt);
                 GridView1.DataBind();
             }
             else if(DropDownList1.SelectedValue.ToString() == "ByName")
             {
+                Response.Write(bolbt.CheckExistSearchBusTypeName(txtSearch.Text));
                 bt.Name = txtSearch.Text;
                 GridView1.DataSource = bolbt.SelectBusTypeByName(bt);
                 GridView1.DataBind();
+            }
             }
         }
 
@@ -135,7 +168,7 @@ namespace WebApplication1
                 GridView1.DataSource = bolbt.DeleteBusTypeByName(bt);
                 GridView1.DataBind();
             }
-
+            
         }
 
 
