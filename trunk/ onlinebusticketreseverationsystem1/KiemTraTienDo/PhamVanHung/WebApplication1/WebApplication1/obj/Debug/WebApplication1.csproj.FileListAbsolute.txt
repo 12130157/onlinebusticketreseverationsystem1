@@ -7,3 +7,12 @@ C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebAppli
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\bin\DAL.dll
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\bin\BOL.pdb
 C:\Documents and Settings\Hung\My Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\bin\DAL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\WebApplication1.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\BOL.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\DAL.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\BOL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\bin\DAL.pdb
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\hungpv00100\Desktop\ProjectSvn\KiemTraTienDo\PhamVanHung\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
