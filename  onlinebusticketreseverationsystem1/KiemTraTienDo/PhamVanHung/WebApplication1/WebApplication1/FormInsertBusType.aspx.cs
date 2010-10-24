@@ -21,81 +21,93 @@ namespace WebApplication1
         BusType bt;
         
         protected void Page_Load(object sender, EventArgs e)
-        {           
-                bolbt = new Bol_BusType();
-                bt = new BusType();
-                GridView1.DataSource = bolbt.SelectAllBusType();
-                GridView1.DataBind();
-                             
+        {
+            bolbt = new Bol_BusType();
+            bt = new BusType();
+            GridView1.DataSource = bolbt.SelectAllBusType();
+            GridView1.DataBind();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if (TextBox1.Text == "")
             {
-                Response.Write("Khong duoc de trong ten !!!");
+                Response.Write("Ban dang de trong ten !!!");
                 TextBox1.Focus();
             }
-            else if (TextBox1.Text != "")
+            else if (TextBox2.Text == "")
             {
-                Response.Write(bolbt.CheckExistInsertBusTypeName(TextBox1.Text));
+                Response.Write("Ban dang de trong gia !!!");
+                TextBox2.Focus();
             }
             else if (TextBox3.Text == "")
             {
-                Response.Write("Khong duoc de trong Description !!!");
+                Response.Write("Ban dang de trong description !!!");
                 TextBox3.Focus();
-            }
-            else if (TextBox3.Text != "")
-            {
-                if (TextBox2.Text == "")
-                {
-                    Response.Write("Khong duoc de trong gia !!!");
-                    TextBox2.Focus();
-                }
-
             }
             else
             {
-                bt.Name = TextBox1.Text;
-                bt.Price = Convert.ToDouble(TextBox2.Text);
-                bt.Description = TextBox3.Text;
-                if (RadioButton1.Checked)
+                if (bolbt.CheckBusTypeExistByName(TextBox1.Text) == 0)
                 {
-                    bt.Status = true;
+                    bt.Name = TextBox1.Text;
+                    bt.Price = Convert.ToDouble(TextBox2.Text);
+                    bt.Description = TextBox3.Text;
+                    if (RadioButton1.Checked)
+                    {
+                        bt.Status = true;
+                    }
+                    else
+                    {
+                        bt.Status = false;
+                    }
+                    bolbt.InsertBusType(bt);
                 }
                 else
                 {
-                    bt.Status = false;
+                    Response.Write("Ten ban nhap da~ ton tai. Vui long nhap ten khac !!!");
                 }
-                bolbt.InsertBusType(bt);
             }
         }
-       
-        
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             bt = new BusType();
             bolbt = new Bol_BusType();
             if (txtSearch.Text == "")
             {
-                Response.Write("Khong duoc de trong !!! ");
-            }  
-            else if(txtSearch.Text != "")
-            {                    
-            if (DropDownList1.SelectedValue.ToString() == "ByID")
-            {
-                Response.Write(bolbt.CheckExistSearchBusTypeID(Convert.ToInt32(txtSearch.Text)));
-                bt.BT_ID = Convert.ToInt32(txtSearch.Text);                
-                GridView1.DataSource = bolbt.SelectBusTypeByID(bt);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap tu khoa muon tim !!!");
+                txtSearch.Focus();
             }
-            else if(DropDownList1.SelectedValue.ToString() == "ByName")
+            else
             {
-                Response.Write(bolbt.CheckExistSearchBusTypeName(txtSearch.Text));
-                bt.Name = txtSearch.Text;
-                GridView1.DataSource = bolbt.SelectBusTypeByName(bt);
-                GridView1.DataBind();
-            }
+                if (DropDownList1.SelectedValue.ToString() == "ByID")
+                {
+                    if (bolbt.CheckBusTypeExistByID(Convert.ToInt32(txtSearch.Text)) == 1)
+                    {
+                        bt.BT_ID = Convert.ToInt32(txtSearch.Text);
+                        GridView1.DataSource = bolbt.SelectBusTypeByID(bt);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID nay khong ton tai !!!");
+                        txtSearch.Focus();
+                    }
+                }
+                else if (DropDownList1.SelectedValue.ToString() == "ByName")
+                {
+                    if (bolbt.CheckBusTypeExistByName(txtSearch.Text) == 1)
+                    {
+                        bt.Name = txtSearch.Text;
+                        GridView1.DataSource = bolbt.SelectBusTypeByName(bt);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Name nay khong ton tai !!!");
+                        txtSearch.Focus();
+                    }
+                }
             }
         }
 
@@ -103,51 +115,99 @@ namespace WebApplication1
         {
             bt = new BusType();
             bolbt = new Bol_BusType();
-            if (DropDownList2.SelectedValue.ToString() == "ByID")
+            if (txtID.Text == "")
             {
-                bt.BT_ID = Convert.ToInt32(txtID.Text);
-                bt.Name = txtName.Text;
-                bt.Description = txtDescription.Text;
-                bt.Price = Convert.ToDouble(txtPrice.Text);
-                if (RadioButton3.Checked)
-                {
-                    bt.Status = true;
-                }
-                else if(RadioButton4.Checked)
-                {
-                    bt.Status = false;
-                }
-                try
-                {
-                    GridView1.DataSource = bolbt.UpdateBusTypeByID(bt);
-                    GridView1.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message+"SAO LAI THE NHI !!!");
-                }
-            }
-            else if (DropDownList2.SelectedValue.ToString() == "ByName")
+                Response.Write("Vui long nhap ten !!!");
+                txtID.Focus();
+            }            
+            else
             {
-                bt.Name = txtName.Text;
-                bt.Description = txtDescription.Text;
-                bt.Price = Convert.ToDouble(txtPrice.Text);
-                if (RadioButton3.Checked)
+                if (DropDownList2.SelectedValue.ToString() == "ByID")
                 {
-                    bt.Status = true;
+                    if (bolbt.CheckBusTypeExistByID(Convert.ToInt32(txtID.Text)) == 1)
+                    {
+                        if (txtName.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin update !!!");
+                            txtName.Focus();
+                        }
+                        else if (txtDescription.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin update !!!");
+                            txtDescription.Focus();
+                        }
+                        else if (txtPrice.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin update !!!");
+                            txtPrice.Focus();
+                        }
+                        else if (txtID.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin update !!!");
+                            txtID.Focus();
+                        }
+                        else
+                        {
+                            bt.BT_ID = Convert.ToInt32(txtID.Text);
+                            bt.Name = txtName.Text;
+                            bt.Description = txtDescription.Text;
+                            bt.Price = Convert.ToDouble(txtPrice.Text);
+                            if (RadioButton3.Checked)
+                            {
+                                bt.Status = true;
+                            }
+                            else if (RadioButton4.Checked)
+                            {
+                                bt.Status = false;
+                            }
+                            try
+                            {
+                                GridView1.DataSource = bolbt.UpdateBusTypeByID(bt);
+                                GridView1.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("ID nay khong ton tai !!!");
+                        txtID.Focus();
+                    }
+
                 }
-                else if (RadioButton4.Checked)
+                else if (DropDownList2.SelectedValue.ToString() == "ByName")
                 {
-                    bt.Status = false;
-                }
-                try
-                {
-                    GridView1.DataSource = bolbt.UpdateBusTypeByName(bt);
-                    GridView1.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message +"CHAN CHUA KIA !!!");
+                    if (bolbt.CheckBusTypeExistByName(txtID.Text) == 1)
+                    {
+                        bt.Name = txtName.Text;
+                        bt.Description = txtDescription.Text;
+                        bt.Price = Convert.ToDouble(txtPrice.Text);
+                        if (RadioButton3.Checked)
+                        {
+                            bt.Status = true;
+                        }
+                        else if (RadioButton4.Checked)
+                        {
+                            bt.Status = false;
+                        }
+                        try
+                        {
+                            GridView1.DataSource = bolbt.UpdateBusTypeByName(bt);
+                            GridView1.DataBind();
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("Name nay khong ton tai !!!");
+                        txtName.Focus();
+                    }
                 }
             }
         }
@@ -156,22 +216,43 @@ namespace WebApplication1
         {
             bolbt = new Bol_BusType();
             bt = new BusType();
-            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            if (txtDelete.Text == "")
             {
-                bt.BT_ID = Convert.ToInt32(txtDelete.Text);
-                GridView1.DataSource = bolbt.DeleteBusTypeByID(bt);
-                GridView1.DataBind();
+                Response.Write("Nhap ten hay id can xoa !!!");
+                txtDelete.Focus();
             }
-            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            else
             {
-                bt.Name = txtDelete.Text;
-                GridView1.DataSource = bolbt.DeleteBusTypeByName(bt);
-                GridView1.DataBind();
+                if (DropDownList3.SelectedValue.ToString() == "ByID")
+                {
+                    if (bolbt.CheckBusTypeExistByID(Convert.ToInt32(txtDelete.Text)) == 1)
+                    {
+                        bt.BT_ID = Convert.ToInt32(txtDelete.Text);
+                        GridView1.DataSource = bolbt.DeleteBusTypeByID(bt);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID nay khong ton tai !!!");
+                        txtName.Focus();
+                    }
+                }
+
+                else if (DropDownList3.SelectedValue.ToString() == "ByName")
+                {
+                    if (bolbt.CheckBusTypeExistByID(Convert.ToInt32(txtDelete.Text)) == 1)
+                    {
+                        bt.Name = txtDelete.Text;
+                        GridView1.DataSource = bolbt.DeleteBusTypeByName(bt);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Name nay khong ton tai !!!");
+                        txtName.Focus();
+                    }
+                }
             }
-            
         }
-
-
-
     }
 }

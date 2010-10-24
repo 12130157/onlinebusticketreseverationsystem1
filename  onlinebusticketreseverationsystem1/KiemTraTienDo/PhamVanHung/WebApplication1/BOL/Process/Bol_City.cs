@@ -30,6 +30,14 @@ namespace BOL.Process
         {
             return btac.SelectCityByName(ct.Name);
         }
+        public int CheckCityExistByName(string name)
+        {            
+            return btac.CheckCityExistByName(name);
+        }
+        public int CheckCityExistByID(int id)
+        {            
+            return btac.CheckCityExistByID(id);
+        }       
         #endregion
         #region Insert
         public int InsertCity(City ct)

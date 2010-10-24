@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Configuration;
 using System.Data.SqlClient;
 namespace DAL
 {
@@ -12,7 +11,7 @@ namespace DAL
         DataTable dt;
         public BusTypeAccessData()
         {
-            
+
         }
         #region SelectBusType
         public DataTable SelectAllBusType()
@@ -26,6 +25,36 @@ namespace DAL
         public DataTable SelectBusTypeByName(String name)
         {
             return ExecuteDataTable("SelectBusTypeByName", createParameter("@Name",name));
+        }
+        public int CheckBusTypeExistByID(int id)
+        {
+            int i = 0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectBusTypeByID", createParameter("@BT_Id", id));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
+        }
+        public int CheckBusTypeExistByName(String name)
+        {
+            int i = 0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectBusTypeByName", createParameter("@Name", name));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
         }
         #endregion
 
@@ -65,62 +94,17 @@ namespace DAL
         #endregion
 
         #region DeleteBusType
-        public int DeleteBusTypeByID(int id)
+        public SqlDataReader DeleteBusTypeByID(int id)
         {
-            return ExecuteNonQuery("DeleteBusTypeByID", createParameter("@BT_Id", id));
+            return ExecuteReader("DeleteBusTypeByID", createParameter("@BT_Id", id));
         }
-        public int DeleteBusTypeByName(String name)
+        public SqlDataReader DeleteBusTypeByName(String name)
         {
-            return ExecuteNonQuery("DeleteBusTypeByName", createParameter("@Name", name));
+            return ExecuteReader("DeleteBusTypeByName", createParameter("@Name", name));
         }
         #endregion
+       
 
-        public string CheckExistSearchBusTypeName(String name)
-        {
-            string str = null;
-            dt = ExecuteDataTable("SelectBusTypeByName", createParameter("@Name", name));
-            if (dt.Rows.Count == 0)
-            {
-                str = "Ten Nay Khong Ton Tai";
-            }
-            return str;
-        }  
-    
-        public string CheckExistSearchBusTypeID(int id)
-        {
-            string str = null;
-            dt = ExecuteDataTable("SelectBusTypeByID", createParameter("@BT_Id",id));
-            if (dt.Rows.Count == 0)
-            {
-                str = "ID Nay Khong Ton Tai";
-            }
-            return str;
-        }
-        public string CheckExistUpdateBusType(int id)
-        {
-            string str = null;
-            dt = ExecuteDataTable("SelectBusTypeByID", createParameter("@BT_Id", id));
-            if (dt.Rows.Count == 0)
-            {
-                str = "ID Nay Khong Ton Tai";
-            }
-            return str;
-        }
-        
-        public string CheckExistInsertBusTypeName(String name)
-        {
-            string str = null;
-            dt = ExecuteDataTable("SelectBusTypeByName", createParameter("@Name", name));
-            if (dt.Rows.Count == 0)
-            {
-               str = "Ten chua su dung.Ban co the dung";
-            }
-            else
-            {
-               str = "Ten nay da ton tai. Xin nhap ten khac";
-            }
-            return str;
-        }
     }
 }
 

@@ -30,6 +30,14 @@ namespace BOL.Process
         {
             return btac.GetSalesByName(sl.Name);
         }
+        public int CheckSalesExistByID(int id)
+        {
+            return btac.CheckSalesExistByID(id);
+        }
+        public int CheckSalesExistByName(string name)
+        {
+            return btac.CheckSalesExistByName(name);
+        }
         #endregion
         #region Insert
         public int InsertSales(Sales sl)

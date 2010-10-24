@@ -27,6 +27,38 @@ namespace DAL
             dt = ExecuteDataTable("SelectCityByName",createParameter("@Name",name));
             return dt;
         }
+
+        public int CheckCityExistByName(string name)
+        {
+            int i =0;
+            DataTable dt = new DataTable();
+            dt = ExecuteDataTable("SelectCityByName", createParameter("@Name", name));
+            if (dt.Rows.Count == 0)
+            {                
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
+        }
+        public int CheckCityExistByID(int id)
+        {
+            int i = 0;
+            DataTable dt = new DataTable();
+            dt = ExecuteDataTable("SelectCityByID", createParameter("@Ci_Id", id));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
+        }
+
         #endregion
 
         #region InsertCity

@@ -26,7 +26,10 @@ namespace WebApplication1
             GridView1.DataSource = bs.SelectAllSales();
             GridView1.DataBind();
         }
-        protected void Check()
+        
+           
+       
+        protected void btnsave_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "")
             {
@@ -40,49 +43,76 @@ namespace WebApplication1
             {
                 Response.Write("Minage null !!!");
             }
-           
-        }
-        protected void btnsave_Click(object sender, EventArgs e)
-        {
-            Check();
-            sa.Name = txtName.Text;
-            try
+            else
             {
-                sa.Maxage = Convert.ToInt32(txtMaxage.Text);
-                sa.Minage = Convert.ToInt32(txtMinage.Text);
-                sa.Rate = Convert.ToInt32(txtrate.Text);
-                if (RadioButton1.Checked)
+                if (bs.CheckSalesExistByName(txtName.Text) == 0)
                 {
-                    sa.Status = true;
+                    sa.Name = txtName.Text;
+                    try
+                    {
+                        sa.Maxage = Convert.ToInt32(txtMaxage.Text);
+                        sa.Minage = Convert.ToInt32(txtMinage.Text);
+                        sa.Rate = Convert.ToInt32(txtrate.Text);
+                        if (RadioButton1.Checked)
+                        {
+                            sa.Status = true;
+                        }
+                        else
+                        {
+                            sa.Status = false;
+                        }
+                        bs.InsertSales(sa);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                 }
                 else
                 {
-                    sa.Status = false;
+                    Response.Write("Ten ban nhap da ton tai !!!");
+                    txtName.Focus();
                 }
-                bs.InsertSales(sa);
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             bs = new Bol_Sales();
-            sa = new Sales();          
-            if (DropDownList1.SelectedValue.ToString() == "ByID")
+            sa = new Sales();
+            if (txtSearch.Text == "")
             {
-                sa.Sa_ID = Convert.ToInt32(txtSearch.Text);
-                GridView1.DataSource = bs.SelectSalesByID(sa);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap ten hoac id can cap nhat !!!");
+                txtSearch.Focus();
             }
-            else if (DropDownList1.SelectedValue.ToString() == "ByName")
+            else
             {
-                sa.Name = txtSearch.Text;
-                GridView1.DataSource = bs.SelectSalesByName(sa);
-                GridView1.DataBind();
+                if (DropDownList1.SelectedValue.ToString() == "ByID")
+                {
+                    if (bs.CheckSalesExistByID(Convert.ToInt32(txtSearch.Text)) == 0)
+                    {
+                        sa.Sa_ID = Convert.ToInt32(txtSearch.Text);
+                        GridView1.DataSource = bs.SelectSalesByID(sa);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID nay khong ton tai !!!");
+                    }
+                }
+                else if (DropDownList1.SelectedValue.ToString() == "ByName")
+                {
+                    if (bs.CheckSalesExistByName(txtSearch.Text) == 0)
+                    {
+                        sa.Name = txtSearch.Text;
+                        GridView1.DataSource = bs.SelectSalesByName(sa);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Name nay khong ton tai !!!");
+                    }
+                }
             }
         }
 
@@ -90,44 +120,112 @@ namespace WebApplication1
         {
             bs = new Bol_Sales();
             sa = new Sales();
-            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            if (txtID.Text == "")
             {
-               sa.Sa_ID = Convert.ToInt32(txtID.Text);
-               sa.Name = txtName.Text;
-               sa.Maxage = Convert.ToInt32(txtMaxage.Text);
-               sa.Minage = Convert.ToInt32(txtMinage.Text);
-               sa.Rate = Convert.ToInt32(txtrate.Text);
-                if (RadioButton3.Checked)
-                {
-                    sa.Status = true;
-                   
-                }
-                else
-                {
-                    sa.Status = false;                   
-                }
-                try
-                {
-                    GridView1.DataSource = bs.UpdateSalesByID(sa);
-                    GridView1.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message + "SAO LAI THE NHI !!!");
-                }
+                Response.Write("Vui long nhap id hay ten trong phan cap nhat !!!");
             }
-            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            else
             {
-                sa.Name = txtName.Text;
-
-                try
+                if (DropDownList4.SelectedValue.ToString() == "ByID")
                 {
-                    GridView1.DataSource = bs.UpdateSalesByName(sa);
-                    GridView1.DataBind();
+                    if (bs.CheckSalesExistByID(Convert.ToInt32(txtID.Text))== 0)
+                    {
+                        if (TextBox1.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox2.Text =="")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox3.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox4.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else
+                        {
+                            sa.Sa_ID = Convert.ToInt32(txtID.Text);
+                            sa.Name = txtName.Text;
+                            sa.Maxage = Convert.ToInt32(txtMaxage.Text);
+                            sa.Minage = Convert.ToInt32(txtMinage.Text);
+                            sa.Rate = Convert.ToInt32(txtrate.Text);
+                            if (RadioButton3.Checked)
+                            {
+                                sa.Status = true;
+                            }
+                            else
+                            {
+                                sa.Status = false;
+                            }
+                            try
+                            {
+                                GridView1.DataSource = bs.UpdateSalesByID(sa);
+                                GridView1.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                            }
+                        }
+                    }
                 }
-                catch (Exception ex)
+                else if (DropDownList4.SelectedValue.ToString() == "ByName")
                 {
-                    Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                    if (bs.CheckSalesExistByName(txtID.Text) == 0)
+                    {
+                        if (TextBox1.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox2.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox3.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else if (TextBox4.Text == "")
+                        {
+                            Response.Write("Ban nhap thieu thong tin !!!");
+                            txtName.Focus();
+                        }
+                        else
+                        {
+                            sa.Name = txtName.Text;
+                            sa.Maxage = Convert.ToInt32(txtMaxage.Text);
+                            sa.Minage = Convert.ToInt32(txtMinage.Text);
+                            sa.Rate = Convert.ToInt32(txtrate.Text);
+                            if (RadioButton3.Checked)
+                            {
+                                sa.Status = true;
+                            }
+                            else
+                            {
+                                sa.Status = false;
+                            }
+                            try
+                            {
+                                GridView1.DataSource = bs.UpdateSalesByID(sa);
+                                GridView1.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -136,17 +234,41 @@ namespace WebApplication1
         {
             bs = new Bol_Sales();
             sa = new Sales();
-            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            if (txtDelete.Text == "")
             {
-                sa.Sa_ID = Convert.ToInt32(txtDelete.Text);
-                GridView1.DataSource = bs.DeleteSalesByID(sa);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap id hoac name can xoa !!!");
+                txtDelete.Focus();
             }
-            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            else
             {
-                sa.Name = txtDelete.Text;
-                GridView1.DataSource = bs.DeleteSalesByName(sa);
-                GridView1.DataBind();
+                if (DropDownList3.SelectedValue.ToString() == "ByID")
+                {
+                    if (bs.CheckSalesExistByID(Convert.ToInt32(txtDelete.Text)) == 0)
+                    {
+                        sa.Sa_ID = Convert.ToInt32(txtDelete.Text);
+                        GridView1.DataSource = bs.DeleteSalesByID(sa);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID ban nhap khong ton tai vui long nhap lai !!!");
+                        txtDelete.Focus();
+                    }
+                }
+                else if (DropDownList3.SelectedValue.ToString() == "ByName")
+                {
+                    if (bs.CheckSalesExistByName(txtDelete.Text) == 0)
+                    {
+                        sa.Name = txtDelete.Text;
+                        GridView1.DataSource = bs.DeleteSalesByName(sa);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Name ban nhap khong ton tai vui long nhap lai !!!");
+                        txtDelete.Focus();
+                    }
+                }
             }
         }
 
