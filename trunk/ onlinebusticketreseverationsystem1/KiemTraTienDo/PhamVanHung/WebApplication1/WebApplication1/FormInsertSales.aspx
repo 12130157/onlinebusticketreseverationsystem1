@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="margin-left: 40px">
+    <div style="margin-left: 40px; width: 663px;">
     
         <asp:Label ID="Label1" runat="server" Text="Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

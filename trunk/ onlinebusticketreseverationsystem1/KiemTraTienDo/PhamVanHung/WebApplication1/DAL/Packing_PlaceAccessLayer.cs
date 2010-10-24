@@ -8,6 +8,7 @@ namespace DAL
 {
     public class Packing_PlaceAccessLayer: ExecuteDataBase
     {
+        DataTable dt;
         #region SelectPacking_Place
         public DataTable GetAllPacking_Place()
         {
@@ -26,6 +27,37 @@ namespace DAL
             DataTable dt = new DataTable();
             dt = ExecuteDataTable("SelectParking_PlaceByName", createParameter("@Name", name));
             return dt;
+        }
+        public int CheckParking_PlaceExistByID(int id)
+        {
+            int i = 0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectParking_PlaceByID", createParameter("@PP_Id", id));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
+        }
+
+        public int CheckParking_PlaceExistByName(String name)
+        {
+            int i = 0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectParking_PlaceByName", createParameter("@Name", name));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
         }
         #endregion
         #region UpdatePacking_Place  

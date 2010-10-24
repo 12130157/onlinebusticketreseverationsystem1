@@ -42,26 +42,39 @@ namespace WebApplication1
         
         }     
         protected void Button1_Click(object sender, EventArgs e)
-        {            
-            bpp= new Bol_Packing_Place();
-            Packing_Place pp = new Packing_Place();
-            pp.Name = TextBox1.Text;
-            pp.Ci_ID = Convert.ToInt32(DropDownList1.SelectedValue);//cai nay la value ne`
-            Label1.Text = Convert.ToString(pp.Ci_ID);
-            if (RadioButton3.Checked)
+        {
+            if (TextBox1.Text == "")
             {
-                pp.Status = true;
-                GridView1.DataSource = bpp.InsertPacking_Place(pp);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap ten !!!");
+                TextBox1.Focus();
             }
             else
             {
-                pp.Status = false;
-                GridView1.DataSource = bpp.InsertPacking_Place(pp);
-                GridView1.DataBind();                
+                bpp = new Bol_Packing_Place();
+                Packing_Place pp = new Packing_Place();
+                if (bpp.CheckParking_PlaceExistByName(TextBox1.Text) == 0)
+                {
+                    pp.Name = TextBox1.Text;
+                    pp.Ci_ID = Convert.ToInt32(DropDownList1.SelectedValue);
+                    Label1.Text = Convert.ToString(pp.Ci_ID);
+                    if (RadioButton3.Checked)
+                    {
+                        pp.Status = true;
+                        GridView1.DataSource = bpp.InsertPacking_Place(pp);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        pp.Status = false;
+                        GridView1.DataSource = bpp.InsertPacking_Place(pp);
+                        GridView1.DataBind();
+                    }
+                }
+                else
+                {
+                    Response.Write("Ten ban nhap da ton tai vui long nhap ten khac !!!");
+                }
             }
-            ////day la form insert paking place ah de xem luon
-
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,17 +88,41 @@ namespace WebApplication1
         {
             pl = new Packing_Place();
             bpp = new Bol_Packing_Place();
-            if (DropDownList2.SelectedValue.ToString() == "ByID")
+            if (txtSearch.Text == "")
             {
-                pl.PP_ID = Convert.ToInt32(txtSearch.Text);                
-                GridView1.DataSource = bpp.SelectPacking_PlaceByID(pl);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap ten hay id can tim !!!");
+                txtSearch.Focus();
             }
-            else if (DropDownList2.SelectedValue.ToString() == "ByName")
+            else
             {
-                pl.Name = txtSearch.Text;
-                GridView1.DataSource = bpp.SelectPacking_PlaceByName(pl);
-                GridView1.DataBind();
+                if (DropDownList2.SelectedValue.ToString() == "ByID")
+                {
+                    if (bpp.CheckParking_PlaceExistByID(Convert.ToInt32(txtSearch.Text)) == 0)
+                    {
+                        pl.PP_ID = Convert.ToInt32(txtSearch.Text);
+                        GridView1.DataSource = bpp.SelectPacking_PlaceByID(pl);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID ban nhap khong ton tai vui long nhap id khac !!!");
+                        txtSearch.Focus();
+                    }
+                }
+                else if (DropDownList2.SelectedValue.ToString() == "ByName")
+                {
+                    if (bpp.CheckParking_PlaceExistByName(txtSearch.Text) == 0)
+                    {
+                        pl.Name = txtSearch.Text;
+                        GridView1.DataSource = bpp.SelectPacking_PlaceByName(pl);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Name ban nhap khong ton tai vui long nhap id khac !!!");
+                        txtSearch.Focus();
+                    }
+                }
             }
         }
 
@@ -93,40 +130,77 @@ namespace WebApplication1
         {
             bpp = new Bol_Packing_Place();
             pl = new Packing_Place();
-            if (DropDownList4.SelectedValue.ToString() == "ByID")
+            if (txtSearch.Text == "")
             {
-                pl.Ci_ID = Convert.ToInt32(txtID.Text);
-                pl.Name = txtName.Text;
-                if (RadioButton1.Checked)
-                {
-                    pl.Status = true;                    
-                }
-                else
-                {
-                    pl.Status = false;                    
-                }
-                try
-                {
-                    GridView1.DataSource = bpp.UpdatePacking_PlaceByID(pl);
-                    GridView1.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message + "SAO LAI THE NHI !!!");
-                }
+                Response.Write("Vui long nhap ten hay id can tim !!!");
+                txtSearch.Focus();
             }
-            else if (DropDownList4.SelectedValue.ToString() == "ByName")
+            else
             {
-                pl.Name = txtName.Text;   
-               
-                try
+                if (DropDownList4.SelectedValue.ToString() == "ByID")
                 {
-                    GridView1.DataSource = bpp.UpdatePacking_PlaceByName(pl);
-                    GridView1.DataBind();
+                    if (bpp.CheckParking_PlaceExistByID(Convert.ToInt32(txtID.Text)) == 0)
+                    {
+                        if (txtName.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin cap nhat !!!");
+                        }
+                        else
+                        {
+                            pl.Ci_ID = Convert.ToInt32(txtID.Text);
+                            pl.Name = txtName.Text;
+                            if (RadioButton1.Checked)
+                            {
+                                pl.Status = true;
+                            }
+                            else
+                            {
+                                pl.Status = false;
+                            }
+                            try
+                            {
+                                GridView1.DataSource = bpp.UpdatePacking_PlaceByID(pl);
+                                GridView1.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message + "SAO LAI THE NHI !!!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("ID ban nhap khong ton tai !!!");
+                        txtID.Focus();
+                    }
                 }
-                catch (Exception ex)
+                else if (DropDownList4.SelectedValue.ToString() == "ByName")
                 {
-                    Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                    if (bpp.CheckParking_PlaceExistByName(txtID.Text) == 0)
+                    {
+                        if (txtName.Text == "")
+                        {
+                            Response.Write("Vui long nhap thong tin cap nhat !!!");
+                        }
+                        else
+                        {
+                            pl.Name = txtName.Text;
+                            try
+                            {
+                                GridView1.DataSource = bpp.UpdatePacking_PlaceByName(pl);
+                                GridView1.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                Response.Write(ex.Message + "CHAN CHUA KIA !!!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("Ten ban nhap khong ton tai !!!");
+                        txtID.Focus();
+                    }
                 }
             }
         }
@@ -135,19 +209,41 @@ namespace WebApplication1
         {
             bpp = new Bol_Packing_Place();
             pl = new Packing_Place();
-            if (DropDownList3.SelectedValue.ToString() == "ByID")
+            if (txtDelete.Text == "")
             {
-                pl.Ci_ID = Convert.ToInt32(txtDelete.Text);
-                GridView1.DataSource = bpp.DeletePacking_PlaceByID(pl);
-                GridView1.DataBind();
+                Response.Write("Vui long nhap ten can delete !!!");
+                txtDelete.Focus();
             }
-            else if (DropDownList3.SelectedValue.ToString() == "ByName")
+            else
             {
-                pl.Name = txtDelete.Text;
-                GridView1.DataSource = bpp.DeletePacking_PlaceByName(pl);
-                GridView1.DataBind();
+                if (DropDownList3.SelectedValue.ToString() == "ByID")
+                {
+                    if (bpp.CheckParking_PlaceExistByID(Convert.ToInt32(txtDelete.Text)) == 0)
+                    {
+                        pl.Ci_ID = Convert.ToInt32(txtDelete.Text);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("ID ban nhap khong ton tai !!!");
+                        txtDelete.Focus();                        
+                    }
+                }
+                else if (DropDownList3.SelectedValue.ToString() == "ByName")
+                {
+                    if (bpp.CheckParking_PlaceExistByName(txtDelete.Text) == 0)
+                    {
+                        pl.Name = txtDelete.Text;
+                        GridView1.DataSource = bpp.DeletePacking_PlaceByName(pl);
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("Ten ban nhap khong ton tai !!!");
+                        txtDelete.Focus();
+                    }
+                }
             }
-
         }
 
 

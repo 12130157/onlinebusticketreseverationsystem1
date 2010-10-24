@@ -8,6 +8,7 @@ namespace DAL
 {
     public class SalesAccessLayer : ExecuteDataBase
     {
+        DataTable dt;
         #region SelectSales
         public DataTable GetAllSales()
         {
@@ -26,6 +27,36 @@ namespace DAL
             DataTable dt = new DataTable();
             dt = ExecuteDataTable("SelectSalesByName", createParameter("@Name", name));
             return dt;
+        }
+        public int CheckSalesExistByID(int id)
+        {
+            int i=0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectSalesByID",createParameter("@Sa_Id",id));
+            if(dt.Rows.Count ==0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
+        }
+        public int CheckSalesExistByName(String name)
+        {
+            int i = 0;
+            dt = new DataTable();
+            dt = ExecuteDataTable("SelectSalesByName", createParameter("@Name",name));
+            if (dt.Rows.Count == 0)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+            return i;
         }
         #endregion
         #region InsertSales

@@ -31,6 +31,14 @@ namespace BOL.Process
         {
             return btac.GetPacking_PlaceByName(pl.Name);
         }
+        public int CheckParking_PlaceExistByName(string name)
+        {
+            return btac.CheckParking_PlaceExistByName(name);
+        }
+        public int CheckParking_PlaceExistByID(int id)
+        {
+            return btac.CheckParking_PlaceExistByID(id);
+        }
         #endregion
         #region Insert
         public int InsertPacking_Place(Packing_Place pl)

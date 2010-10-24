@@ -21,7 +21,7 @@
         <asp:Button ID="btnSearch" runat="server" Text="Search" 
             onclick="btnSearch_Click" />
 &nbsp;
-        <asp:TextBox ID="txtSearch" runat="server" Width="130px"></asp:TextBox>
+        <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList1" runat="server">
             <asp:ListItem>ByName</asp:ListItem>
@@ -40,7 +40,7 @@
         <asp:Label ID="Label4" runat="server" Text="Status"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RadioButton ID="RadioButton1" runat="server" GroupName="rbtStatus" 
-            Text="Avaible" Font-Bold = "True" Checked="True" />
+            Text="Avaible" Font-Bold = "True" />
         <asp:RadioButton ID="RadioButton2" runat="server" GroupName="rbtStatus" 
             Text="Unavaible" Font-Bold="True" />    
         <br />
@@ -49,7 +49,6 @@
         <br />
         <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
-        <br />
         <br />
         <br />
         ------------------UPDATE------------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 

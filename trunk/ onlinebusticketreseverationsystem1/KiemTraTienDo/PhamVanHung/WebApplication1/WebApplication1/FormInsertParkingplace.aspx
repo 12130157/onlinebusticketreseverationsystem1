@@ -49,7 +49,7 @@
         <asp:Label ID="Label5" runat="server" Text="Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnDelete" runat="server" Text="Delete" 
             onclick="btnDelete_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,8 +59,7 @@
             <asp:ListItem>ByName</asp:ListItem>
         </asp:DropDownList>
         <br />
-        City
-        <br />
+        &nbsp;City<br />
         Status         <asp:RadioButton ID="RadioButton1" runat="server" GroupName="abc" 
             Text="Avaible" />
 &nbsp;<asp:RadioButton ID="RadioButton2" runat="server" GroupName="abc" 
